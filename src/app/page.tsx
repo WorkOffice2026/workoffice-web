@@ -59,7 +59,6 @@ const [openService, setOpenService] = useState<string | null>(null);
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-white to-gray-50 text-[#111] font-sans">
-      <h1>CAMBIO REAL 999</h1>
       {/* HEADER */}
       <header className="flex justify-between items-center px-12 py-6 border-b bg-white sticky top-0 z-50">
 <a href="#inicio">
