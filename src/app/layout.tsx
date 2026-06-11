@@ -13,8 +13,60 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Work Office",
-  description: "Soluciones en Recursos Humanos en Uruguay",
+  title: {
+    default: "Work Office | Consultora de Recursos Humanos en Uruguay",
+    template: "%s | Work Office",
+  },
+  description:
+    "Work Office es una consultora de recursos humanos en Uruguay especializada en selección de personal, outsourcing, payroll y soluciones laborales para empresas y postulantes.",
+
+  keywords: [
+    "recursos humanos Uruguay",
+    "consultora RRHH Montevideo",
+    "selección de personal",
+    "trabajo Uruguay",
+    "empleos Montevideo",
+    "outsourcing RRHH",
+    "payroll Uruguay",
+  ],
+
+  metadataBase: new URL("https://workoffice.com.uy"),
+
+  openGraph: {
+    title: "Work Office | Consultora de Recursos Humanos en Uruguay",
+    description:
+      "Soluciones integrales en recursos humanos para empresas y postulantes en Uruguay.",
+    url: "https://workoffice.com.uy",
+    siteName: "Work Office",
+images: [
+  {
+    url: new URL("/og-image.jpg", "https://workoffice.com.uy"),
+    width: 1200,
+    height: 630,
+    alt: "Work Office - Recursos Humanos Uruguay",
+  },
+],
+    locale: "es_UY",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Work Office | RRHH en Uruguay",
+    description:
+      "Consultora de recursos humanos especializada en selección de personal y soluciones laborales.",
+    images: ["/og-image.jpg"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+    },
+  },
 };
 
 export default function RootLayout({
