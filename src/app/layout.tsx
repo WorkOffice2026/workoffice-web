@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     default: "Work Office | Consultora de Recursos Humanos en Uruguay",
     template: "%s | Work Office",
   },
+
   description:
     "Work Office es una consultora de recursos humanos en Uruguay especializada en selección de personal, outsourcing, payroll y soluciones laborales para empresas y postulantes.",
 
@@ -35,27 +36,28 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Work Office | Consultora de Recursos Humanos en Uruguay",
     description:
-      "Soluciones integrales en recursos humanos para empresas y postulantes en Uruguay.",
+      "Soluciones integrales en recursos humanos para empresas y postulantes en Uruguay. Selección de personal, outsourcing y payroll.",
     url: "https://workoffice.com.uy",
     siteName: "Work Office",
-images: [
-  {
-    url: new URL("/og-image.jpg", "https://workoffice.com.uy"),
-    width: 1200,
-    height: 630,
-    alt: "Work Office - Recursos Humanos Uruguay",
-  },
-],
-    locale: "es_UY",
     type: "website",
+    locale: "es_UY",
+
+    images: [
+      {
+        url: "https://workoffice.com.uy/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Work Office - Recursos Humanos Uruguay",
+      },
+    ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Work Office | RRHH en Uruguay",
+    title: "Work Office | Recursos Humanos en Uruguay",
     description:
-      "Consultora de recursos humanos especializada en selección de personal y soluciones laborales.",
-    images: ["/og-image.jpg"],
+      "Consultora de RRHH especializada en selección de personal, outsourcing y payroll en Uruguay.",
+    images: ["https://workoffice.com.uy/og-image.jpg"],
   },
 
   robots: {
@@ -71,9 +73,9 @@ images: [
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html
       lang="es"
