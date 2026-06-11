@@ -11,99 +11,89 @@ export default function Home() {
   const services = [
     {
       title: "Selección de Personal",
-      desc: "Desde 1988, hemos seleccionado talentos para más de 900 empresas del mercado.",
+      desc: "Identificamos y evaluamos candidatos alineados a las necesidades de cada organización.",
     },
     {
-      title: "Suministro Temporario de Personal",
-      desc: "Incorporación rápida y segura de personal calificado.",
-    },
-    {
-      title: "Evaluaciones Psicolaborales",
-      desc: "Análisis profesional de actitudes y aptitudes.",
+      title: "Personal Temporario",
+      desc: "Soluciones ágiles para cubrir necesidades operativas y picos de trabajo.",
     },
     {
       title: "Payroll",
-      desc: "Gestión integral de liquidación de haberes.",
+      desc: "Gestión integral de liquidación de haberes y administración de personal.",
     },
     {
-      title: "Análisis de Clima Organizacional",
-      desc: "Diagnóstico de clima laboral con herramientas especializadas.",
+      title: "Evaluaciones Psicolaborales",
+      desc: "Herramientas profesionales para selección y desarrollo de talento.",
     },
     {
-      title: "Planes de Onboarding y Outplacement",
-      items: [
-        {
-          subtitle: "Onboarding",
-          text: "Elaboramos programas de inducción adaptados a la cultura y objetivos de cada organización.",
-        },
-        {
-          subtitle: "Outplacement",
-          text: "Acompañamos procesos de transición laboral con enfoque humano y estratégico.",
-        },
-      ],
+      title: "Desarrollo Organizacional",
+      desc: "Acompañamiento en procesos de mejora y gestión del talento.",
+    },
+    {
+      title: "Onboarding y Outplacement",
+      desc: "Procesos de inducción y reinserción laboral personalizados.",
     },
   ];
 
   const values = ["Experiencia", "Confidencialidad", "Vocación", "Compromiso"];
 
   return (
-    <main className="bg-white text-[#111] overflow-x-hidden">
+    <main className="bg-white text-[#111]">
+
+      {/* HEADER */}
+      <header className="flex justify-between items-center px-10 py-5 border-b bg-white sticky top-0 z-50">
+        <Image
+          src="/logo-workoffice.png"
+          alt="Work Office"
+          width={180}
+          height={60}
+        />
+
+        <nav className="flex gap-6 text-sm text-gray-600 font-medium">
+          <a href="#inicio">Inicio</a>
+          <a href="#nosotros">Nosotros</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#oportunidades">Oportunidades</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+      </header>
 
       {/* HERO */}
-      <section className="relative h-screen flex items-center justify-center text-center">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute w-full h-full object-cover"
-        >
+      <section id="inicio" className="relative h-[700px] flex items-center justify-center text-center overflow-hidden">
+        <video autoPlay muted loop playsInline className="absolute w-full h-full object-cover">
           <source src="/hero-video.mp4" />
         </video>
 
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/50" />
 
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           className="relative z-10 max-w-4xl px-6"
         >
-          <h1 className="text-white text-3xl md:text-6xl font-bold leading-tight">
-            Encontramos el talento que impulsa el crecimiento de tu organización
+          <h1 className="text-white text-4xl md:text-6xl font-bold">
+            Encontramos el talento que impulsa tu organización
           </h1>
-          <p className="text-gray-200 mt-6 text-lg md:text-xl">
+          <p className="text-gray-200 mt-6 text-lg">
             Soluciones integrales en Recursos Humanos para empresas y postulantes.
           </p>
         </motion.div>
       </section>
 
-      {/* QUIÉNES SOMOS */}
-      <section className="py-24 max-w-5xl mx-auto px-6 text-center">
-        <motion.h2
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          className="text-3xl font-bold text-[#216089] mb-6"
-        >
-          ¿Quiénes somos?
-        </motion.h2>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="text-gray-700 leading-8"
-        >
-          Work Office es una consultora uruguaya especializada en soluciones en Capital Humano,
-          con más de 30 años de trayectoria acompañando a empresas públicas y privadas.
-        </motion.p>
+      {/* NOSOTROS */}
+      <section id="nosotros" className="py-24 max-w-5xl mx-auto px-6 text-center">
+        <h2 className="text-3xl font-bold text-[#216089] mb-6">¿Quiénes somos?</h2>
+        <p className="text-gray-700 leading-8">
+          Work Office es una consultora especializada en Capital Humano con más de 30 años de experiencia,
+          acompañando organizaciones públicas y privadas en la gestión de personas.
+        </p>
       </section>
 
-      {/* MISIÓN / VISIÓN */}
-      <section className="grid md:grid-cols-2">
-        <div className="bg-[#216089] text-white flex items-center p-12">
-          <div>
-            <h3 className="text-2xl font-bold mb-4">Misión</h3>
-            <p>Brindar soluciones personalizadas en Recursos Humanos con calidad y confianza.</p>
-          </div>
+      {/* MISIÓN */}
+      <section className="grid md:grid-cols-2 items-center">
+        <div className="bg-[#216089] text-white p-10">
+          <h3 className="text-3xl font-bold mb-4">Misión</h3>
+          <p>Brindar soluciones de Recursos Humanos con calidad, confianza y cercanía.</p>
         </div>
 
         <Image
@@ -115,44 +105,73 @@ export default function Home() {
         />
       </section>
 
-      <section className="grid md:grid-cols-2">
+      {/* VISIÓN */}
+      <section className="grid md:grid-cols-2 items-center">
         <Image
-          src="/hero-vision.png"
+          src="/hero-vision.jpg"
           alt="Visión"
           width={900}
           height={600}
-          className="w-full h-full object-cover order-2 md:order-1"
+          className="w-full h-full object-cover"
         />
 
-        <div className="bg-white text-[#216089] flex items-center p-12">
-          <div>
-            <h3 className="text-2xl font-bold mb-4">Visión</h3>
-            <p>Ser referentes en la gestión del Capital Humano como aliados estratégicos.</p>
-          </div>
+        <div className="p-10 text-[#216089]">
+          <h3 className="text-3xl font-bold mb-4">Visión</h3>
+          <p>Ser referentes en gestión del Capital Humano como aliados estratégicos.</p>
         </div>
       </section>
 
       {/* VALORES */}
-      <section className="py-24 bg-[#216089] text-center">
-        <h2 className="text-white text-3xl font-bold mb-10">
-          Valores que nos orientan
-        </h2>
+      <section className="bg-[#216089] py-20 text-center">
+        <h2 className="text-white text-3xl font-bold mb-10">Valores</h2>
 
-        <div className="flex flex-wrap justify-center gap-4 px-6">
+        <div className="flex flex-wrap justify-center gap-4">
           {values.map((v) => (
-            <motion.div
-              key={v}
-              whileHover={{ scale: 1.05 }}
-              className="bg-white text-[#216089] px-6 py-3 rounded-full font-semibold"
-            >
-              {v}
-            </motion.div>
+            <div key={v} className="bg-white text-[#216089] px-6 py-3 rounded-full font-semibold flex items-center gap-2">
+              <span>✓</span> {v}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* EQUIPO */}
+      <section className="py-24 max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h3 className="text-3xl font-bold text-[#216089] mb-4">Nuestro equipo</h3>
+          <p className="text-gray-700 leading-8">
+            Profesionales en Psicología Laboral y Recursos Humanos comprometidos con la calidad del servicio.
+          </p>
+        </div>
+
+        <Image
+          src="/hero-equipo.jpg"
+          alt="Equipo"
+          width={800}
+          height={500}
+          className="rounded-xl"
+        />
+      </section>
+
+      {/* CLIENTES */}
+      <section className="bg-gray-50 py-20 text-center">
+        <h2 className="text-2xl font-bold text-[#216089] mb-10">Empresas que confían en nosotros</h2>
+
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-6 px-10">
+          {[1,2,3,4,5].map((n) => (
+            <div key={n} className="bg-white p-4 rounded-xl shadow">
+              <Image
+                src={`/cliente${n}.png`}
+                alt={`Cliente ${n}`}
+                width={120}
+                height={60}
+              />
+            </div>
           ))}
         </div>
       </section>
 
       {/* SERVICIOS */}
-      <section className="py-24 max-w-5xl mx-auto px-6">
+      <section id="servicios" className="py-24 max-w-5xl mx-auto px-6">
         <h2 className="text-3xl font-bold text-center text-[#216089] mb-10">
           Servicios
         </h2>
@@ -160,7 +179,6 @@ export default function Home() {
         <div className="space-y-4">
           {services.map((s) => (
             <div key={s.title} className="border rounded-xl overflow-hidden">
-
               <button
                 onClick={() =>
                   setOpenService(openService === s.title ? null : s.title)
@@ -171,17 +189,8 @@ export default function Home() {
               </button>
 
               {openService === s.title && (
-                <div className="p-5 bg-white text-gray-700 space-y-4">
-                  {"desc" in s && <p>{s.desc}</p>}
-
-                  {"items" in s &&
-                    Array.isArray(s.items) &&
-                    s.items.map((i) => (
-                      <div key={i.subtitle}>
-                        <h4 className="font-bold text-[#216089]">{i.subtitle}</h4>
-                        <p>{i.text}</p>
-                      </div>
-                    ))}
+                <div className="p-5 text-gray-700 bg-white">
+                  {s.desc}
                 </div>
               )}
             </div>
@@ -189,13 +198,30 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CONTACTO */}
-      <section className="py-24 max-w-4xl mx-auto text-center px-6">
-        <h2 className="text-3xl font-bold text-[#216089] mb-8">
-          Contacto
+      {/* OPORTUNIDADES LABORALES */}
+      <section id="oportunidades" className="py-20 text-center bg-gray-50">
+        <h2 className="text-3xl font-bold text-[#216089] mb-6">
+          Oportunidades Laborales
         </h2>
 
-        <div className="flex justify-center gap-4">
+        <p className="mb-6 text-gray-600">
+          Accedé a nuestras vacantes activas
+        </p>
+
+        <a
+          href="https://www.buscojobs.com.uy/empresas/214536/work-office"
+          target="_blank"
+          className="bg-[#216089] text-white px-8 py-4 rounded-full"
+        >
+          Ver oportunidades
+        </a>
+      </section>
+
+      {/* CONTACTO */}
+      <section id="contacto" className="py-24 max-w-4xl mx-auto px-6 text-center">
+        <h2 className="text-3xl font-bold text-[#216089] mb-8">Contacto</h2>
+
+        <div className="flex justify-center gap-4 mb-10">
           <button
             onClick={() => setOpenForm("empresas")}
             className="bg-[#216089] text-white px-6 py-3 rounded-full"
@@ -210,15 +236,34 @@ export default function Home() {
             Postulantes
           </button>
         </div>
+
+        {openForm === "empresas" && (
+          <form className="space-y-3">
+            <input className="border p-2 w-full" placeholder="Empresa" />
+            <input className="border p-2 w-full" placeholder="Contacto" />
+            <input className="border p-2 w-full" placeholder="Email" />
+            <textarea className="border p-2 w-full" placeholder="Mensaje" />
+          </form>
+        )}
+
+        {openForm === "postulantes" && (
+          <form className="space-y-3">
+            <input className="border p-2 w-full" placeholder="Nombre" />
+            <input className="border p-2 w-full" placeholder="Email" />
+            <input type="file" className="border p-2 w-full" />
+            <textarea className="border p-2 w-full" placeholder="Mensaje" />
+          </form>
+        )}
       </section>
 
-      {/* WHATSAPP */}
-      <a
-        href="https://wa.me/59894270264"
-        className="fixed bottom-5 right-5 bg-green-500 text-white p-4 rounded-full shadow-lg"
-      >
-        WhatsApp
-      </a>
+      {/* FOOTER */}
+      <footer className="bg-[#216089] text-white text-center py-10">
+        <div className="flex flex-col items-center gap-3">
+          <Image src="/mapa-uruguay.png" alt="Mapa" width={180} height={120} />
+          <p>Convención 1343, Montevideo</p>
+          <p>+598 2900 8504</p>
+        </div>
+      </footer>
 
     </main>
   );
