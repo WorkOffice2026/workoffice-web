@@ -279,33 +279,56 @@ export default function Home() {
   </div>
 </section>
 
-      {/* SERVICIOS */}
-      <section id="servicios" className="py-24 max-w-5xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center text-[#216089] mb-10">
-          Servicios
-        </h2>
+{/* SERVICIOS */}
+<section id="servicios" className="py-24 max-w-5xl mx-auto px-6">
+  <h2 className="text-3xl font-bold text-center text-[#216089] mb-10">
+    Servicios
+  </h2>
 
-        <div className="space-y-4">
-          {services.map((s) => (
-            <div key={s.title} className="border rounded-xl overflow-hidden">
-              <button
-                onClick={() =>
-                  setOpenService(openService === s.title ? null : s.title)
-                }
-                className="w-full text-left p-5 bg-[#216089] text-white font-semibold"
-              >
-                {s.title}
-              </button>
+  <div className="space-y-4">
+    {services.map((s) => (
+      <motion.div
+        key={s.title}
+        whileHover={{ scale: 1.01 }}
+        transition={{ duration: 0.2 }}
+        className="border rounded-xl overflow-hidden shadow-sm"
+      >
+        <button
+          onClick={() =>
+            setOpenService(openService === s.title ? null : s.title)
+          }
+          className="w-full flex items-center justify-between p-5 bg-[#216089] text-white font-semibold hover:bg-[#1b5173] transition-colors"
+        >
+          <span>{s.title}</span>
 
-              {openService === s.title && (
-                <div className="p-5 text-gray-700 bg-white">
-                  {s.desc}
-                </div>
-              )}
+          <motion.span
+            animate={{
+              rotate: openService === s.title ? 45 : 0,
+            }}
+            transition={{ duration: 0.25 }}
+            className="text-2xl font-light"
+          >
+            +
+          </motion.span>
+        </button>
+
+        {openService === s.title && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+          >
+            <div className="p-5 text-gray-700 bg-white">
+              {s.desc}
             </div>
-          ))}
-        </div>
-      </section>
+          </motion.div>
+        )}
+      </motion.div>
+    ))}
+  </div>
+</section>
 
       {/* OPORTUNIDADES LABORALES */}
       <section id="oportunidades" className="py-20 text-center bg-gray-50">
