@@ -105,56 +105,74 @@ export default function Home() {
         </p>
       </section>
 
-      {/* MISIÓN + VISIÓN */}
-      <section className="py-24 px-6 space-y-20 [perspective:1200px]">
+{/* MISIÓN + VISIÓN */}
+<section className="py-20 px-6 space-y-14 [perspective:1000px]">
 
-        <motion.div
-  initial={{ opacity: 0, y: 60 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.3 }}
-  transition={{ duration: 0.6 }}
-  whileHover={{
-    scale: 1.03,
-    rotateX: 3,
-    rotateY: -3,
-    translateY: -6,
-  }}
-  style={{ transformStyle: "preserve-3d" }}
-  className="grid md:grid-cols-2 bg-[#216089] rounded-2xl overflow-hidden shadow-xl"
->
-          <div className="p-10 text-white">
-            <h3 className="text-3xl font-bold mb-4">Misión</h3>
-            <p>
-              Brindar soluciones personalizadas en Recursos Humanos, con atención profesional y procesos de calidad, trabajando junto a cada cliente para responder a sus necesidades con confianza y eficacia.
-            </p>
-          </div>
-          <Image src="/hero-mision.jpg" alt="mision" width={900} height={600} />
-        </motion.div>
+  {/* MISIÓN */}
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.3 }}
+    transition={{ duration: 0.8, ease: "easeOut" }}
+    whileHover={{
+      scale: 1.015,
+      rotateX: 1.5,
+      rotateY: -1.5,
+      translateY: -4,
+    }}
+    style={{ transformStyle: "preserve-3d" }}
+    className="grid md:grid-cols-2 bg-[#216089] rounded-xl overflow-hidden shadow-md max-w-4xl mx-auto"
+  >
+    <div className="p-8 text-white">
+      <h3 className="text-2xl font-bold mb-3">Misión</h3>
+      <p className="text-white/90 leading-relaxed">
+        Brindar soluciones personalizadas en Recursos Humanos, con atención profesional y procesos de calidad, trabajando junto a cada cliente para responder a sus necesidades con confianza y eficacia.
+      </p>
+    </div>
 
-        <motion.div
-  initial={{ opacity: 0, y: 60 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.3 }}
-  transition={{ duration: 0.6, delay: 0.2 }}
-  whileHover={{
-    scale: 1.03,
-    rotateX: -3,
-    rotateY: 3,
-    translateY: -6,
-  }}
-  style={{ transformStyle: "preserve-3d" }}
-  className="grid md:grid-cols-2 bg-white rounded-2xl overflow-hidden shadow-xl border"
->
-          <Image src="/hero-vision.jpg" alt="vision" width={900} height={600} />
-          <div className="p-10">
-            <h3 className="text-3xl font-bold text-[#216089] mb-4">Visión</h3>
-            <p className="text-gray-600">
-              Continuar siendo referentes en la gestión del Capital Humano, como aliados estratégicos de las organizaciones, con un equipo comprometido con el trato humano y la responsabilidad institucional.
-            </p>
-          </div>
-        </motion.div>
+    <Image
+      src="/hero-mision.jpg"
+      alt="mision"
+      width={900}
+      height={600}
+      className="object-cover w-full h-full"
+    />
+  </motion.div>
 
-      </section>
+  {/* VISIÓN */}
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.3 }}
+    transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
+    whileHover={{
+      scale: 1.015,
+      rotateX: -1.5,
+      rotateY: 1.5,
+      translateY: -4,
+    }}
+    style={{ transformStyle: "preserve-3d" }}
+    className="grid md:grid-cols-2 bg-white rounded-xl overflow-hidden shadow-md border max-w-4xl mx-auto"
+  >
+    <Image
+      src="/hero-vision.jpg"
+      alt="vision"
+      width={900}
+      height={600}
+      className="object-cover w-full h-full md:order-1 order-2"
+    />
+
+    <div className="p-8 md:order-2 order-1">
+      <h3 className="text-2xl font-bold text-[#216089] mb-3">
+        Visión
+      </h3>
+      <p className="text-gray-600 leading-relaxed">
+        Continuar siendo referentes en la gestión del Capital Humano, como aliados estratégicos de las organizaciones, con un equipo comprometido con el trato humano y la responsabilidad institucional.
+      </p>
+    </div>
+  </motion.div>
+
+</section>
 
       {/* VALORES */}
       <section className="bg-[#216089] py-20 text-center">
