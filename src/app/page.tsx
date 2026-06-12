@@ -106,9 +106,22 @@ export default function Home() {
       </section>
 
       {/* MISIÓN + VISIÓN */}
-      <section className="py-24 px-6 space-y-20">
+      <section className="py-24 px-6 space-y-20 [perspective:1200px]">
 
-        <motion.div className="grid md:grid-cols-2 bg-[#216089] rounded-2xl overflow-hidden shadow-xl">
+        <motion.div
+  initial={{ opacity: 0, y: 60 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.3 }}
+  transition={{ duration: 0.6 }}
+  whileHover={{
+    scale: 1.03,
+    rotateX: 3,
+    rotateY: -3,
+    translateY: -6,
+  }}
+  style={{ transformStyle: "preserve-3d" }}
+  className="grid md:grid-cols-2 bg-[#216089] rounded-2xl overflow-hidden shadow-xl"
+>
           <div className="p-10 text-white">
             <h3 className="text-3xl font-bold mb-4">Misión</h3>
             <p>
@@ -118,7 +131,20 @@ export default function Home() {
           <Image src="/hero-mision.jpg" alt="mision" width={900} height={600} />
         </motion.div>
 
-        <motion.div className="grid md:grid-cols-2 bg-white rounded-2xl overflow-hidden shadow-xl border">
+        <motion.div
+  initial={{ opacity: 0, y: 60 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.3 }}
+  transition={{ duration: 0.6, delay: 0.2 }}
+  whileHover={{
+    scale: 1.03,
+    rotateX: -3,
+    rotateY: 3,
+    translateY: -6,
+  }}
+  style={{ transformStyle: "preserve-3d" }}
+  className="grid md:grid-cols-2 bg-white rounded-2xl overflow-hidden shadow-xl border"
+>
           <Image src="/hero-vision.jpg" alt="vision" width={900} height={600} />
           <div className="p-10">
             <h3 className="text-3xl font-bold text-[#216089] mb-4">Visión</h3>
@@ -156,20 +182,64 @@ export default function Home() {
         <Image src="/hero-equipo.jpg" alt="equipo" width={800} height={500} className="rounded-xl" />
       </motion.section>
 
-      {/* CLIENTES */}
-      <section className="py-20 bg-gray-50 text-center">
-        <h2 className="text-2xl font-bold text-[#216089] mb-10">
-          Empresas que confían en nosotros
-        </h2>
+<section className="bg-gray-50 py-20 text-center">
+  <h2 className="text-2xl font-bold text-[#216089] mb-10">
+    Empresas que confían en nosotros
+  </h2>
 
-        <div className="flex gap-6 overflow-x-auto px-10 scrollbar-hide">
-          {[1,2,3,4,5].map(n => (
-            <div key={n} className="min-w-[160px] bg-white p-4 rounded-xl shadow">
-              <Image src={`/cliente${n}.png`} alt="" width={120} height={60} />
-            </div>
-          ))}
-        </div>
-      </section>
+  <div className="relative max-w-6xl mx-auto px-10">
+
+    <button
+      onClick={() =>
+        document.getElementById("clients-scroll")?.scrollBy({
+          left: -300,
+          behavior: "smooth",
+        })
+      }
+      className="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow-md p-3 rounded-full"
+    >
+      ←
+    </button>
+
+    <div
+      id="clients-scroll"
+      className="flex gap-6 overflow-x-auto scroll-smooth px-10 py-4 scrollbar-hide"
+    >
+      {[1, 2, 3, 4, 5].map((n) => (
+        <motion.div
+          key={n}
+          whileHover={{
+            scale: 1.08,
+            rotateX: 6,
+            rotateY: -6,
+          }}
+          transition={{ type: "spring", stiffness: 200, damping: 15 }}
+          className="min-w-[160px] bg-white p-4 rounded-xl shadow-md flex items-center justify-center"
+        >
+          <Image
+            src={`/cliente${n}.png`}
+            alt="cliente"
+            width={120}
+            height={60}
+          />
+        </motion.div>
+      ))}
+    </div>
+
+    <button
+      onClick={() =>
+        document.getElementById("clients-scroll")?.scrollBy({
+          left: 300,
+          behavior: "smooth",
+        })
+      }
+      className="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow-md p-3 rounded-full"
+    >
+      →
+    </button>
+
+  </div>
+</section>
 
       {/* SERVICIOS */}
       <section id="servicios" className="py-24 max-w-5xl mx-auto px-6">
@@ -196,19 +266,44 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CONTACTO */}
-      <section id="contacto" className="py-24 text-center">
-        <h2 className="text-3xl font-bold text-[#216089] mb-8">Contacto</h2>
+{/* CONTACTO */}
+<section id="contacto" className="py-24 max-w-4xl mx-auto px-6 text-center">
+  <h2 className="text-3xl font-bold text-[#216089] mb-8">Contacto</h2>
 
-        <div className="flex justify-center gap-4 mb-10">
-          <button className="bg-[#216089] text-white px-6 py-3 rounded-full">
-            Empresas
-          </button>
-          <button className="border border-[#216089] text-[#216089] px-6 py-3 rounded-full">
-            Postulantes
-          </button>
-        </div>
-      </section>
+  <div className="flex justify-center gap-4 mb-10">
+    <button
+      onClick={() => setOpenForm("empresas")}
+      className="bg-[#216089] text-white px-6 py-3 rounded-full"
+    >
+      Empresas
+    </button>
+
+    <button
+      onClick={() => setOpenForm("postulantes")}
+      className="border border-[#216089] text-[#216089] px-6 py-3 rounded-full"
+    >
+      Postulantes
+    </button>
+  </div>
+
+  {openForm === "empresas" && (
+    <form className="space-y-3 text-left">
+      <input className="border p-2 w-full" placeholder="Empresa" />
+      <input className="border p-2 w-full" placeholder="Contacto" />
+      <input className="border p-2 w-full" placeholder="Email" />
+      <textarea className="border p-2 w-full" placeholder="Mensaje" />
+    </form>
+  )}
+
+  {openForm === "postulantes" && (
+    <form className="space-y-3 text-left">
+      <input className="border p-2 w-full" placeholder="Nombre" />
+      <input className="border p-2 w-full" placeholder="Email" />
+      <input type="file" className="border p-2 w-full" />
+      <textarea className="border p-2 w-full" placeholder="Mensaje" />
+    </form>
+  )}
+</section>
 
       {/* FOOTER */}
       <footer className="bg-[#216089] text-white py-12">
