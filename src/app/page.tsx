@@ -156,7 +156,9 @@ export default function Home() {
 
 {/* VALORES QUE NOS ORIENTAN*/}
 <section className="bg-[#216089] py-20 text-center">
-  <h2 className="text-white text-3xl font-bold mb-10">Valores</h2>
+  <h2 className="text-white text-3xl font-bold mb-10">
+  Valores que nos orientan
+</h2>
 
   <div className="flex flex-wrap justify-center gap-4">
     {values.map((v) => (
