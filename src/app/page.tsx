@@ -154,18 +154,31 @@ export default function Home() {
   </div>
 </section>
 
-      {/* VALORES */}
-      <section className="bg-[#216089] py-20 text-center">
-        <h2 className="text-white text-3xl font-bold mb-10">Valores</h2>
+ {/* VALORES */}
+<section className="bg-[#216089] py-20 text-center">
+  <h2 className="text-white text-3xl font-bold mb-10">Valores</h2>
 
-        <div className="flex flex-wrap justify-center gap-4">
-          {values.map((v) => (
-            <div key={v} className="bg-white text-[#216089] px-6 py-3 rounded-full font-semibold flex items-center gap-2">
-              <span>✓</span> {v}
-            </div>
-          ))}
-        </div>
-      </section>
+  <div className="flex flex-wrap justify-center gap-4">
+    {values.map((v) => (
+      <motion.div
+        key={v}
+        whileHover={{
+          scale: 1.08,
+          rotateX: 6,
+          rotateY: -6,
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 200,
+          damping: 15,
+        }}
+        className="bg-white text-[#216089] px-6 py-3 rounded-full font-semibold flex items-center gap-2 cursor-pointer shadow-md"
+      >
+        <span>✓</span> {v}
+      </motion.div>
+    ))}
+  </div>
+</section>
 
       {/* EQUIPO */}
       <section className="py-24 max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
