@@ -88,9 +88,10 @@ export default function Home() {
         </p>
       </section>
 
- {/* MISIÓN + VISIÓN (REDISEÑADO) */}
-<section className="bg-[#216089] py-24 px-6">
-  <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
+{/* MISIÓN + VISIÓN PREMIUM */}
+<section className="py-24 px-6 bg-white space-y-20">
+
+  <div className="max-w-6xl mx-auto space-y-20">
 
     {/* MISIÓN */}
     <motion.div
@@ -98,24 +99,27 @@ export default function Home() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6 }}
-      className="bg-white rounded-2xl overflow-hidden shadow-xl"
+      whileHover={{ scale: 1.02, rotateX: 2, rotateY: -2 }}
+      className="grid md:grid-cols-2 items-center gap-10 bg-[#216089] rounded-2xl shadow-xl overflow-hidden"
     >
+      {/* TEXTO */}
+      <div className="p-10 text-white">
+        <h3 className="text-3xl font-bold mb-4">
+          Misión
+        </h3>
+        <p className="leading-relaxed text-white/90">
+          Brindar soluciones de Recursos Humanos con calidad, confianza y cercanía.
+        </p>
+      </div>
+
+      {/* IMAGEN */}
       <Image
         src="/hero-mision.jpg"
         alt="Misión"
         width={900}
         height={600}
-        className="w-full h-64 object-cover"
+        className="w-full h-full object-cover"
       />
-
-      <div className="p-8">
-        <h3 className="text-2xl font-bold text-[#216089] mb-3">
-          Misión
-        </h3>
-        <p className="text-gray-600 leading-relaxed">
-          Brindar soluciones de Recursos Humanos con calidad, confianza y cercanía.
-        </p>
-      </div>
     </motion.div>
 
     {/* VISIÓN */}
@@ -124,21 +128,24 @@ export default function Home() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, delay: 0.2 }}
-      className="bg-white rounded-2xl overflow-hidden shadow-xl"
+      whileHover={{ scale: 1.02, rotateX: -2, rotateY: 2 }}
+      className="grid md:grid-cols-2 items-center gap-10 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden"
     >
+      {/* IMAGEN */}
       <Image
         src="/hero-vision.jpg"
         alt="Visión"
         width={900}
         height={600}
-        className="w-full h-64 object-cover"
+        className="w-full h-full object-cover md:order-1 order-2"
       />
 
-      <div className="p-8">
-        <h3 className="text-2xl font-bold text-[#216089] mb-3">
+      {/* TEXTO */}
+      <div className="p-10 md:order-2 order-1">
+        <h3 className="text-3xl font-bold text-[#216089] mb-4">
           Visión
         </h3>
-        <p className="text-gray-600 leading-relaxed">
+        <p className="leading-relaxed text-gray-600">
           Ser referentes en gestión del Capital Humano como aliados estratégicos.
         </p>
       </div>
