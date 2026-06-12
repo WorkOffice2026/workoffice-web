@@ -180,23 +180,34 @@ export default function Home() {
   </div>
 </section>
 
-      {/* EQUIPO */}
-      <section className="py-24 max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <h3 className="text-3xl font-bold text-[#216089] mb-4">Nuestro equipo</h3>
-          <p className="text-gray-700 leading-8">
-            Profesionales en Psicología Laboral y Recursos Humanos comprometidos con la calidad del servicio.
-          </p>
-        </div>
+{/* EQUIPO */}
+<motion.section
+  initial={{ opacity: 0, y: 60 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.3 }}
+  transition={{ duration: 0.6 }}
+  whileHover={{ scale: 1.02, rotateX: 2, rotateY: -2 }}
+  className="py-24 max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center"
+>
+  {/* TEXTO */}
+  <div>
+    <h3 className="text-3xl font-bold text-[#216089] mb-4">
+      Nuestro equipo
+    </h3>
+    <p className="text-gray-700 leading-8">
+      Profesionales en Psicología Laboral y Recursos Humanos comprometidos con la calidad del servicio.
+    </p>
+  </div>
 
-        <Image
-          src="/hero-equipo.jpg"
-          alt="Equipo"
-          width={800}
-          height={500}
-          className="rounded-xl"
-        />
-      </section>
+  {/* IMAGEN */}
+  <Image
+    src="/hero-equipo.jpg"
+    alt="Equipo"
+    width={800}
+    height={500}
+    className="rounded-xl shadow-xl w-full object-cover"
+  />
+</motion.section>
 
       {/* CLIENTES */}
       <section className="bg-gray-50 py-20 text-center">
