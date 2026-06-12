@@ -40,23 +40,53 @@ export default function Home() {
   return (
     <main className="bg-white text-[#111]">
 
-      {/* HEADER */}
-      <header className="flex justify-between items-center px-10 py-5 border-b bg-white sticky top-0 z-50">
-        <Image
-          src="/logo-workoffice.png"
-          alt="Work Office"
-          width={180}
-          height={60}
-        />
+  {/* HEADER */}
+<header className="flex justify-between items-center px-10 py-5 border-b bg-white sticky top-0 z-50">
 
-        <nav className="flex gap-6 text-sm text-gray-600 font-medium">
-          <a href="#inicio">Inicio</a>
-          <a href="#nosotros">Nosotros</a>
-          <a href="#servicios">Servicios</a>
-          <a href="#oportunidades">Oportunidades</a>
-          <a href="#contacto">Contacto</a>
-        </nav>
-      </header>
+  {/* LOGO */}
+  <Image
+    src="/logo-workoffice.png"
+    alt="Work Office"
+    width={180}
+    height={60}
+  />
+
+  <div className="flex items-center gap-10">
+
+    {/* NAV */}
+    <nav className="flex gap-6 text-sm text-gray-600 font-medium">
+      <a href="#inicio" className="hover:text-[#216089] transition">Inicio</a>
+      <a href="#nosotros" className="hover:text-[#216089] transition">Nosotros</a>
+      <a href="#servicios" className="hover:text-[#216089] transition">Servicios</a>
+      <a href="#oportunidades" className="hover:text-[#216089] transition">Oportunidades</a>
+      <a href="#contacto" className="hover:text-[#216089] transition">Contacto</a>
+    </nav>
+
+    {/* REDES SOCIALES */}
+    <div className="flex items-center gap-4 text-[#216089] ml-2">
+
+      <a
+        href="https://linkedin.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:scale-110 transition"
+      >
+        <FaLinkedinIn size={18} />
+      </a>
+
+      <a
+        href="https://instagram.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:scale-110 transition"
+      >
+        <FaInstagram size={18} />
+      </a>
+
+    </div>
+
+  </div>
+</header>
 
       {/* HERO */}
       <section id="inicio" className="relative h-[700px] flex items-center justify-center text-center overflow-hidden">
