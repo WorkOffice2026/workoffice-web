@@ -365,7 +365,6 @@ export default function Home() {
         )}
       </section>
 
-{/* FOOTER */}
 <footer className="bg-[#216089] text-white py-12">
   <div className="max-w-6xl mx-auto px-6">
 
@@ -381,8 +380,8 @@ export default function Home() {
           <Image
             src="/mapa-uruguay.png"
             alt="Mapa Montevideo"
-            width={180}
-            height={140}
+            width={220}
+            height={170}
             className="object-contain w-full h-full"
           />
         </div>
@@ -403,8 +402,18 @@ export default function Home() {
         </p>
       </div>
 
-      {/* ESPACIO DERECHA (equilibrio visual) */}
-      <div className="hidden md:block"></div>
+      {/* LOGO (DERECHA) */}
+      <div className="flex justify-center md:justify-end">
+        <div className="w-[220px] h-[170px] flex items-center justify-center">
+          <Image
+            src="/iconlogo-workoffice.png"
+            alt="Work Office Logo"
+            width={180}
+            height={180}
+            className="object-contain hover:scale-105 transition duration-300"
+          />
+        </div>
+      </div>
 
     </div>
   </div>
