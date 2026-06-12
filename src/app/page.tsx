@@ -383,7 +383,7 @@ export default function Home() {
             alt="Mapa Montevideo"
             width={180}
             height={140}
-            className="object-cover w-full h-full"
+            className="object-contain w-full h-full"
           />
         </div>
       </div>
