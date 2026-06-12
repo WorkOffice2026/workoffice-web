@@ -209,23 +209,73 @@ export default function Home() {
   />
 </motion.section>
 
-      {/* CLIENTES */}
-      <section className="bg-gray-50 py-20 text-center">
-        <h2 className="text-2xl font-bold text-[#216089] mb-10">Empresas que confían en nosotros</h2>
+{/* CLIENTES */}
+<section className="bg-gray-50 py-20 text-center">
+  <h2 className="text-2xl font-bold text-[#216089] mb-10">
+    Empresas que confían en nosotros
+  </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-6 px-10">
-          {[1,2,3,4,5].map((n) => (
-            <div key={n} className="bg-white p-4 rounded-xl shadow">
-              <Image
-                src={`/cliente${n}.png`}
-                alt={`Cliente ${n}`}
-                width={120}
-                height={60}
-              />
-            </div>
-          ))}
-        </div>
-      </section>
+  <div className="relative max-w-6xl mx-auto px-10">
+
+    {/* BOTÓN IZQUIERDA */}
+    <button
+      onClick={() => {
+        document.getElementById("clients-scroll")?.scrollBy({
+          left: -300,
+          behavior: "smooth",
+        });
+      }}
+      className="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow-md rounded-full p-3 z-10 hover:scale-110 transition"
+    >
+      ←
+    </button>
+
+    {/* SCROLL AREA */}
+    <div
+      id="clients-scroll"
+      className="flex gap-6 overflow-x-auto scroll-smooth px-10 py-4 scrollbar-hide"
+    >
+      {[1, 2, 3, 4, 5].map((n) => (
+        <motion.div
+          key={n}
+          whileHover={{
+            scale: 1.08,
+            rotateX: 6,
+            rotateY: -6,
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 200,
+            damping: 15,
+          }}
+          className="min-w-[160px] bg-white p-4 rounded-xl shadow-md flex items-center justify-center cursor-pointer"
+        >
+          <Image
+            src={`/cliente${n}.png`}
+            alt={`Cliente ${n}`}
+            width={120}
+            height={60}
+            className="object-contain"
+          />
+        </motion.div>
+      ))}
+    </div>
+
+    {/* BOTÓN DERECHA */}
+    <button
+      onClick={() => {
+        document.getElementById("clients-scroll")?.scrollBy({
+          left: 300,
+          behavior: "smooth",
+        });
+      }}
+      className="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow-md rounded-full p-3 z-10 hover:scale-110 transition"
+    >
+      →
+    </button>
+
+  </div>
+</section>
 
       {/* SERVICIOS */}
       <section id="servicios" className="py-24 max-w-5xl mx-auto px-6">
