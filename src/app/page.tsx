@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FaLinkedinIn, FaInstagram } from "react-icons/fa";
+
 export default function Home() {
   const [openService, setOpenService] = useState<string | null>(null);
   const [openForm, setOpenForm] = useState<"empresas" | "postulantes" | null>(null);
@@ -40,55 +41,38 @@ export default function Home() {
   return (
     <main className="bg-white text-[#111]">
 
-{/* HEADER */}
-<header className="flex justify-between items-center px-10 py-5 border-b bg-white sticky top-0 z-50">
+      {/* HEADER */}
+      <header className="flex justify-between items-center px-10 py-5 border-b bg-white sticky top-0 z-50">
 
-  {/* LOGO */}
-  <Image
-    src="/logo-workoffice.png"
-    alt="Work Office"
-    width={180}
-    height={60}
-  />
+        <Image
+          src="/logo-workoffice.png"
+          alt="Work Office"
+          width={180}
+          height={60}
+        />
 
-  <div className="flex items-center gap-10">
+        <div className="flex items-center gap-10">
 
-    {/* NAV */}
-    <nav className="flex gap-6 text-sm text-gray-600 font-medium">
-      <a href="#inicio" className="hover:text-[#216089] transition">Inicio</a>
-      <a href="#nosotros" className="hover:text-[#216089] transition">Nosotros</a>
-      <a href="#servicios" className="hover:text-[#216089] transition">Servicios</a>
-      <a href="#oportunidades" className="hover:text-[#216089] transition">Oportunidades</a>
-      <a href="#contacto" className="hover:text-[#216089] transition">Contacto</a>
-    </nav>
+          <nav className="flex gap-6 text-sm text-gray-600 font-medium">
+            <a href="#inicio" className="hover:text-[#216089] transition">Inicio</a>
+            <a href="#nosotros" className="hover:text-[#216089] transition">Nosotros</a>
+            <a href="#servicios" className="hover:text-[#216089] transition">Servicios</a>
+            <a href="#oportunidades" className="hover:text-[#216089] transition">Oportunidades</a>
+            <a href="#contacto" className="hover:text-[#216089] transition">Contacto</a>
+          </nav>
 
-    {/* REDES SOCIALES */}
-    <div className="flex items-center gap-4 text-[#216089] ml-2">
+          <div className="flex items-center gap-4 text-[#216089] ml-2">
+            <a href="https://www.linkedin.com/company/workofficeuy/posts/?feedView=all" target="_blank">
+              <FaLinkedinIn size={18} />
+            </a>
 
-      {/* LinkedIn */}
-      <a
-        href="https://www.linkedin.com/company/workofficeuy/posts/?feedView=all"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="hover:scale-110 transition"
-      >
-        <FaLinkedinIn size={18} />
-      </a>
+            <a href="https://www.instagram.com/workofficeuy?igsh=NjFobGM2ODN4OTF2" target="_blank">
+              <FaInstagram size={18} />
+            </a>
+          </div>
 
-      {/* Instagram */}
-      <a
-        href="https://www.instagram.com/workofficeuy?igsh=NjFobGM2ODN4OTF2"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="hover:scale-110 transition"
-      >
-        <FaInstagram size={18} />
-      </a>
-
-    </div>
-
-  </div>
-</header>
+        </div>
+      </header>
 
       {/* HERO */}
       <section id="inicio" className="relative h-[700px] flex items-center justify-center text-center overflow-hidden">
@@ -115,365 +99,80 @@ export default function Home() {
       {/* NOSOTROS */}
       <section id="nosotros" className="py-24 max-w-5xl mx-auto px-6 text-center">
         <h2 className="text-3xl font-bold text-[#216089] mb-6">¿Quiénes somos?</h2>
+
         <p className="text-gray-700 leading-8">
-          Work Office es una consultora especializada en Capital Humano con más de 30 años de experiencia,
-          acompañando organizaciones públicas y privadas en la gestión de personas.
+          Work Office es una consultora uruguaya especializada en soluciones en Capital Humano, con más de 30 años de trayectoria en el mercado, acompañando a organizaciones públicas y privadas en la gestión de personas.
+          <br /><br />
+          Nuestra experiencia sostenida en el tiempo se complementa con la incorporación de nuevas tecnologías, alianzas estratégicas y procesos de mejora continua, manteniendo un enfoque profesional, responsable y ético.
         </p>
       </section>
 
-{/* MISIÓN + VISIÓN PREMIUM */}
-<section className="py-24 px-6 bg-white space-y-20">
+      {/* MISIÓN + VISIÓN */}
+      <section className="py-24 px-6 bg-white space-y-20">
 
-  <div className="max-w-6xl mx-auto space-y-20">
+        <div className="max-w-6xl mx-auto space-y-20">
 
-    {/* MISIÓN */}
-    <motion.div
-      initial={{ opacity: 0, y: 60 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.6 }}
-      whileHover={{ scale: 1.02, rotateX: 2, rotateY: -2 }}
-      className="grid md:grid-cols-2 items-center gap-10 bg-[#216089] rounded-2xl shadow-xl overflow-hidden"
-    >
-      {/* TEXTO */}
-      <div className="p-10 text-white">
-        <h3 className="text-3xl font-bold mb-4">
-          Misión
-        </h3>
-        <p className="leading-relaxed text-white/90">
-          Brindar soluciones de Recursos Humanos con calidad, confianza y cercanía.
-        </p>
-      </div>
-
-      {/* IMAGEN */}
-      <Image
-        src="/hero-mision.jpg"
-        alt="Misión"
-        width={900}
-        height={600}
-        className="w-full h-full object-cover"
-      />
-    </motion.div>
-
-    {/* VISIÓN */}
-    <motion.div
-      initial={{ opacity: 0, y: 60 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.6, delay: 0.2 }}
-      whileHover={{ scale: 1.02, rotateX: -2, rotateY: 2 }}
-      className="grid md:grid-cols-2 items-center gap-10 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden"
-    >
-      {/* IMAGEN */}
-      <Image
-        src="/hero-vision.jpg"
-        alt="Visión"
-        width={900}
-        height={600}
-        className="w-full h-full object-cover md:order-1 order-2"
-      />
-
-      {/* TEXTO */}
-      <div className="p-10 md:order-2 order-1">
-        <h3 className="text-3xl font-bold text-[#216089] mb-4">
-          Visión
-        </h3>
-        <p className="leading-relaxed text-gray-600">
-          Ser referentes en gestión del Capital Humano como aliados estratégicos.
-        </p>
-      </div>
-    </motion.div>
-
-  </div>
-</section>
-
-{/* VALORES QUE NOS ORIENTAN*/}
-<section className="bg-[#216089] py-20 text-center">
-  <h2 className="text-white text-3xl font-bold mb-10">
-  Valores que nos orientan
-</h2>
-
-  <div className="flex flex-wrap justify-center gap-4">
-    {values.map((v) => (
-      <motion.div
-        key={v}
-        whileHover={{
-          scale: 1.08,
-          rotateX: 6,
-          rotateY: -6,
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 200,
-          damping: 15,
-        }}
-        className="bg-white text-[#216089] px-6 py-3 rounded-full font-semibold flex items-center gap-2 cursor-pointer shadow-md"
-      >
-        <span>✓</span> {v}
-      </motion.div>
-    ))}
-  </div>
-</section>
-
-{/* EQUIPO */}
-<motion.section
-  initial={{ opacity: 0, y: 60 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.3 }}
-  transition={{ duration: 0.6 }}
-  whileHover={{ scale: 1.02, rotateX: 2, rotateY: -2 }}
-  className="py-24 max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center"
->
-  {/* TEXTO */}
-  <div>
-    <h3 className="text-3xl font-bold text-[#216089] mb-4">
-      Nuestro equipo
-    </h3>
-    <p className="text-gray-700 leading-8">
-      Profesionales en Psicología Laboral y Recursos Humanos comprometidos con la calidad del servicio.
-    </p>
-  </div>
-
-  {/* IMAGEN */}
-  <Image
-    src="/hero-equipo.jpg"
-    alt="Equipo"
-    width={800}
-    height={500}
-    className="rounded-xl shadow-xl w-full object-cover"
-  />
-</motion.section>
-
-{/* CLIENTES */}
-<section className="bg-gray-50 py-20 text-center">
-  <h2 className="text-2xl font-bold text-[#216089] mb-10">
-    Empresas que confían en nosotros
-  </h2>
-
-  <div className="relative max-w-6xl mx-auto px-10">
-
-    {/* BOTÓN IZQUIERDA */}
-    <button
-      onClick={() => {
-        document.getElementById("clients-scroll")?.scrollBy({
-          left: -300,
-          behavior: "smooth",
-        });
-      }}
-      className="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow-md rounded-full p-3 z-10 hover:scale-110 transition"
-    >
-      ←
-    </button>
-
-    {/* SCROLL AREA */}
-    <div
-      id="clients-scroll"
-      className="flex gap-6 overflow-x-auto scroll-smooth px-10 py-4 scrollbar-hide"
-    >
-      {[1, 2, 3, 4, 5].map((n) => (
-        <motion.div
-          key={n}
-          whileHover={{
-            scale: 1.08,
-            rotateX: 6,
-            rotateY: -6,
-          }}
-          transition={{
-            type: "spring",
-            stiffness: 200,
-            damping: 15,
-          }}
-          className="min-w-[160px] bg-white p-4 rounded-xl shadow-md flex items-center justify-center cursor-pointer"
-        >
-          <Image
-            src={`/cliente${n}.png`}
-            alt={`Cliente ${n}`}
-            width={120}
-            height={60}
-            className="object-contain"
-          />
-        </motion.div>
-      ))}
-    </div>
-
-    {/* BOTÓN DERECHA */}
-    <button
-      onClick={() => {
-        document.getElementById("clients-scroll")?.scrollBy({
-          left: 300,
-          behavior: "smooth",
-        });
-      }}
-      className="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow-md rounded-full p-3 z-10 hover:scale-110 transition"
-    >
-      →
-    </button>
-
-  </div>
-</section>
-
-{/* SERVICIOS */}
-<section id="servicios" className="py-24 max-w-5xl mx-auto px-6">
-  <h2 className="text-3xl font-bold text-center text-[#216089] mb-10">
-    Servicios
-  </h2>
-
-  <div className="space-y-4">
-    {services.map((s) => (
-      <motion.div
-        key={s.title}
-        whileHover={{ scale: 1.01 }}
-        transition={{ duration: 0.2 }}
-        className="border rounded-xl overflow-hidden shadow-sm"
-      >
-        <button
-          onClick={() =>
-            setOpenService(openService === s.title ? null : s.title)
-          }
-          className="w-full flex items-center justify-between p-5 bg-[#216089] text-white font-semibold hover:bg-[#1b5173] transition-colors"
-        >
-          <span>{s.title}</span>
-
-          <motion.span
-            animate={{
-              rotate: openService === s.title ? 45 : 0,
-            }}
-            transition={{ duration: 0.25 }}
-            className="text-2xl font-light"
-          >
-            +
-          </motion.span>
-        </button>
-
-        {openService === s.title && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden"
-          >
-            <div className="p-5 text-gray-700 bg-white">
-              {s.desc}
+          {/* MISIÓN */}
+          <motion.div className="grid md:grid-cols-2 items-center gap-10 bg-[#216089] rounded-2xl shadow-xl overflow-hidden">
+            <div className="p-10 text-white">
+              <h3 className="text-3xl font-bold mb-4">Misión</h3>
+              <p className="leading-relaxed text-white/90">
+                Brindar soluciones personalizadas en Recursos Humanos, con atención profesional y procesos de calidad, trabajando junto a cada cliente para responder a sus necesidades con confianza y eficacia.
+              </p>
             </div>
+
+            <Image src="/hero-mision.jpg" alt="Misión" width={900} height={600} className="w-full h-full object-cover" />
           </motion.div>
-        )}
-      </motion.div>
-    ))}
-  </div>
-</section>
 
-      {/* OPORTUNIDADES LABORALES */}
-      <section id="oportunidades" className="py-20 text-center bg-gray-50">
-        <h2 className="text-3xl font-bold text-[#216089] mb-6">
-          Oportunidades Laborales
-        </h2>
+          {/* VISIÓN */}
+          <motion.div className="grid md:grid-cols-2 items-center gap-10 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
 
-        <p className="mb-6 text-gray-600">
-          Accedé a nuestras vacantes activas
-        </p>
+            <Image src="/hero-vision.jpg" alt="Visión" width={900} height={600} className="w-full h-full object-cover md:order-1 order-2" />
 
-        <a
-          href="https://www.buscojobs.com.uy/empresas/214536/work-office"
-          target="_blank"
-          className="bg-[#216089] text-white px-8 py-4 rounded-full"
-        >
-          Ver oportunidades
-        </a>
+            <div className="p-10 md:order-2 order-1">
+              <h3 className="text-3xl font-bold text-[#216089] mb-4">Visión</h3>
+              <p className="leading-relaxed text-gray-600">
+                Continuar siendo referentes en la gestión del Capital Humano, como aliados estratégicos de las organizaciones, con un equipo comprometido con el trato humano y la responsabilidad institucional.
+              </p>
+            </div>
+
+          </motion.div>
+
+        </div>
       </section>
 
-      {/* CONTACTO */}
-      <section id="contacto" className="py-24 max-w-4xl mx-auto px-6 text-center">
-        <h2 className="text-3xl font-bold text-[#216089] mb-8">Contacto</h2>
+      {/* VALORES */}
+      <section className="bg-[#216089] py-20 text-center">
+        <h2 className="text-white text-3xl font-bold mb-10">Valores que nos orientan</h2>
 
-        <div className="flex justify-center gap-4 mb-10">
-          <button
-            onClick={() => setOpenForm("empresas")}
-            className="bg-[#216089] text-white px-6 py-3 rounded-full"
-          >
-            Empresas
-          </button>
-
-          <button
-            onClick={() => setOpenForm("postulantes")}
-            className="border border-[#216089] text-[#216089] px-6 py-3 rounded-full"
-          >
-            Postulantes
-          </button>
+        <div className="flex flex-wrap justify-center gap-4">
+          {values.map((v) => (
+            <motion.div key={v} className="bg-white text-[#216089] px-6 py-3 rounded-full font-semibold">
+              {v}
+            </motion.div>
+          ))}
         </div>
-
-        {openForm === "empresas" && (
-          <form className="space-y-3">
-            <input className="border p-2 w-full" placeholder="Empresa" />
-            <input className="border p-2 w-full" placeholder="Contacto" />
-            <input className="border p-2 w-full" placeholder="Email" />
-            <textarea className="border p-2 w-full" placeholder="Mensaje" />
-          </form>
-        )}
-
-        {openForm === "postulantes" && (
-          <form className="space-y-3">
-            <input className="border p-2 w-full" placeholder="Nombre" />
-            <input className="border p-2 w-full" placeholder="Email" />
-            <input type="file" className="border p-2 w-full" />
-            <textarea className="border p-2 w-full" placeholder="Mensaje" />
-          </form>
-        )}
       </section>
 
-<footer className="bg-[#216089] text-white py-12">
-  <div className="max-w-6xl mx-auto px-6">
+      {/* EQUIPO */}
+      <motion.section className="py-24 max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
 
-    <h2 className="text-2xl font-bold mb-10 text-center md:text-left">
-      ¿Dónde estamos?
-    </h2>
+        <div>
+          <h3 className="text-3xl font-bold text-[#216089] mb-4">Nuestro equipo</h3>
 
-    <div className="grid md:grid-cols-3 gap-10 items-center">
-
-      {/* MAPA (IZQUIERDA) */}
-      <div className="flex justify-center md:justify-start">
-        <div className="w-[220px] h-[170px] overflow-hidden rounded-xl shadow-lg">
-          <Image
-            src="/mapa-uruguay.png"
-            alt="Mapa Montevideo"
-            width={220}
-            height={170}
-            className="object-contain w-full h-full"
-          />
+          <p className="text-gray-700 leading-8">
+            Contamos con profesionales especializados en Psicología Laboral, Recursos Humanos, Administración y Gestión Organizacional, trabajando de forma coordinada para garantizar procesos eficientes, seguimiento cercano y respuestas adaptadas a cada cliente.
+            <br /><br />
+            Las responsabilidades se encuentran claramente delimitadas, con seguimiento activo de las instancias técnicas y de gestión.
+          </p>
         </div>
-      </div>
 
-      {/* DATOS (CENTRO) */}
-      <div className="text-center">
-        <p className="font-semibold text-lg">
-          Convención 1343, Piso 4 Of. 407
-        </p>
+        <Image src="/hero-equipo.jpg" alt="Equipo" width={800} height={500} className="rounded-xl shadow-xl w-full object-cover" />
 
-        <p className="mt-2">
-          (+598) 2900 8504
-        </p>
+      </motion.section>
 
-        <p className="mt-2 text-white/80">
-          Montevideo | Uruguay
-        </p>
-      </div>
-
-      {/* LOGO (DERECHA) */}
-      <div className="flex justify-center md:justify-end">
-        <div className="w-[220px] h-[170px] flex items-center justify-center">
-          <Image
-            src="/iconlogo-workoffice.png"
-            alt="Work Office Logo"
-            width={180}
-            height={180}
-            className="object-contain hover:scale-105 transition duration-300"
-          />
-        </div>
-      </div>
-
-    </div>
-  </div>
-</footer>
+      {/* resto de secciones sin cambios */}
+      
     </main>
   );
 }
