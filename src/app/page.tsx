@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { FaLinkedinIn, FaInstagram } from "react-icons/fa";
 export default function Home() {
   const [openService, setOpenService] = useState<string | null>(null);
   const [openForm, setOpenForm] = useState<"empresas" | "postulantes" | null>(null);
