@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-
 export default function Home() {
   const [openService, setOpenService] = useState<string | null>(null);
   const [openForm, setOpenForm] = useState<"empresas" | "postulantes" | null>(null);
@@ -71,6 +70,9 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           className="relative z-10 max-w-4xl px-6"
         >
+        <h1>
+  VERSION TEST 77777
+</h1>
           <h1 className="text-white text-4xl md:text-6xl font-bold">
             Encontramos el talento que impulsa tu organización
           </h1>
