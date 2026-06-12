@@ -88,37 +88,64 @@ export default function Home() {
         </p>
       </section>
 
-      {/* MISIÓN */}
-      <section className="grid md:grid-cols-2 items-center">
-        <div className="bg-[#216089] text-white p-10">
-          <h3 className="text-3xl font-bold mb-4">Misión</h3>
-          <p>Brindar soluciones de Recursos Humanos con calidad, confianza y cercanía.</p>
-        </div>
+ {/* MISIÓN + VISIÓN (REDISEÑADO) */}
+<section className="bg-[#216089] py-24 px-6">
+  <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
 
-        <Image
-          src="/hero-mision.jpg"
-          alt="Misión"
-          width={900}
-          height={600}
-          className="w-full h-full object-cover"
-        />
-      </section>
+    {/* MISIÓN */}
+    <motion.div
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.6 }}
+      className="bg-white rounded-2xl overflow-hidden shadow-xl"
+    >
+      <Image
+        src="/hero-mision.jpg"
+        alt="Misión"
+        width={900}
+        height={600}
+        className="w-full h-64 object-cover"
+      />
 
-      {/* VISIÓN */}
-      <section className="grid md:grid-cols-2 items-center">
-        <Image
-          src="/hero-vision.jpg"
-          alt="Visión"
-          width={900}
-          height={600}
-          className="w-full h-full object-cover"
-        />
+      <div className="p-8">
+        <h3 className="text-2xl font-bold text-[#216089] mb-3">
+          Misión
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          Brindar soluciones de Recursos Humanos con calidad, confianza y cercanía.
+        </p>
+      </div>
+    </motion.div>
 
-        <div className="p-10 text-[#216089]">
-          <h3 className="text-3xl font-bold mb-4">Visión</h3>
-          <p>Ser referentes en gestión del Capital Humano como aliados estratégicos.</p>
-        </div>
-      </section>
+    {/* VISIÓN */}
+    <motion.div
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+      className="bg-white rounded-2xl overflow-hidden shadow-xl"
+    >
+      <Image
+        src="/hero-vision.jpg"
+        alt="Visión"
+        width={900}
+        height={600}
+        className="w-full h-64 object-cover"
+      />
+
+      <div className="p-8">
+        <h3 className="text-2xl font-bold text-[#216089] mb-3">
+          Visión
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          Ser referentes en gestión del Capital Humano como aliados estratégicos.
+        </p>
+      </div>
+    </motion.div>
+
+  </div>
+</section>
 
       {/* VALORES */}
       <section className="bg-[#216089] py-20 text-center">
