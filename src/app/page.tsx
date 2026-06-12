@@ -154,7 +154,7 @@ export default function Home() {
   </div>
 </section>
 
-{/* VALORES */}
+{/* VALORES QUE NOS ORIENTAN*/}
 <section className="bg-[#216089] py-20 text-center">
   <h2 className="text-white text-3xl font-bold mb-10">Valores</h2>
 
