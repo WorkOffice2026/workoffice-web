@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <main className="bg-white text-[#111]">
 
-  {/* HEADER */}
+{/* HEADER */}
 <header className="flex justify-between items-center px-10 py-5 border-b bg-white sticky top-0 z-50">
 
   {/* LOGO */}
@@ -65,8 +65,9 @@ export default function Home() {
     {/* REDES SOCIALES */}
     <div className="flex items-center gap-4 text-[#216089] ml-2">
 
+      {/* LinkedIn */}
       <a
-        href="https://linkedin.com"
+        href="https://www.linkedin.com/company/workofficeuy/posts/?feedView=all"
         target="_blank"
         rel="noopener noreferrer"
         className="hover:scale-110 transition"
@@ -74,8 +75,9 @@ export default function Home() {
         <FaLinkedinIn size={18} />
       </a>
 
+      {/* Instagram */}
       <a
-        href="https://instagram.com"
+        href="https://www.instagram.com/workofficeuy?igsh=NjFobGM2ODN4OTF2"
         target="_blank"
         rel="noopener noreferrer"
         className="hover:scale-110 transition"
