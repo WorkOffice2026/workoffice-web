@@ -65,7 +65,6 @@ export default function Home() {
             <a href="https://www.linkedin.com/company/workofficeuy/posts/?feedView=all" target="_blank">
               <FaLinkedinIn size={18} />
             </a>
-
             <a href="https://www.instagram.com/workofficeuy?igsh=NjFobGM2ODN4OTF2" target="_blank">
               <FaInstagram size={18} />
             </a>
@@ -79,14 +78,9 @@ export default function Home() {
         <video autoPlay muted loop playsInline className="absolute w-full h-full object-cover">
           <source src="/hero-video.mp4" />
         </video>
-
         <div className="absolute inset-0 bg-black/50" />
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="relative z-10 max-w-4xl px-6"
-        >
+        <motion.div className="relative z-10 max-w-4xl px-6">
           <h1 className="text-white text-4xl md:text-6xl font-bold">
             Encontramos el talento que impulsa tu organización
           </h1>
@@ -109,7 +103,6 @@ export default function Home() {
 
       {/* MISIÓN + VISIÓN */}
       <section className="py-24 px-6 bg-white space-y-20">
-
         <div className="max-w-6xl mx-auto space-y-20">
 
           {/* MISIÓN */}
@@ -171,8 +164,66 @@ export default function Home() {
 
       </motion.section>
 
-      {/* resto de secciones sin cambios */}
-      
+      {/* CLIENTES */}
+      <section className="bg-gray-50 py-20 text-center">
+        <h2 className="text-2xl font-bold text-[#216089] mb-10">
+          Empresas que confían en nosotros
+        </h2>
+      </section>
+
+      {/* SERVICIOS */}
+      <section id="servicios" className="py-24 max-w-5xl mx-auto px-6">
+        <h2 className="text-3xl font-bold text-center text-[#216089] mb-10">Servicios</h2>
+
+        <div className="space-y-4">
+          {services.map((s) => (
+            <div key={s.title} className="border rounded-xl overflow-hidden">
+              <button
+                onClick={() => setOpenService(openService === s.title ? null : s.title)}
+                className="w-full p-5 bg-[#216089] text-white font-semibold flex justify-between"
+              >
+                {s.title}
+                <span>{openService === s.title ? "−" : "+"}</span>
+              </button>
+
+              {openService === s.title && (
+                <div className="p-5 text-gray-700 bg-white">
+                  {s.desc}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CONTACTO */}
+      <section id="contacto" className="py-24 max-w-4xl mx-auto px-6 text-center">
+        <h2 className="text-3xl font-bold text-[#216089] mb-8">Contacto</h2>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="bg-[#216089] text-white py-12">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid md:grid-cols-3 gap-10 items-center">
+
+            <div>
+              <Image src="/mapa-uruguay.png" alt="Mapa" width={220} height={170} />
+            </div>
+
+            <div className="text-center">
+              <p>Convención 1343, Piso 4 Of. 407</p>
+              <p>(+598) 2900 8504</p>
+              <p>Montevideo | Uruguay</p>
+            </div>
+
+            <div className="flex justify-center">
+              <Image src="/iconlogo-workoffice.png" alt="Logo" width={150} height={150} />
+            </div>
+
+          </div>
+        </div>
+      </footer>
+
     </main>
   );
 }
