@@ -54,19 +54,19 @@ export default function Home() {
         <div className="flex items-center gap-10">
 
           <nav className="flex gap-6 text-sm text-gray-600 font-medium">
-            <a href="#inicio" className="hover:text-[#216089] transition">Inicio</a>
-            <a href="#nosotros" className="hover:text-[#216089] transition">Nosotros</a>
-            <a href="#servicios" className="hover:text-[#216089] transition">Servicios</a>
-            <a href="#oportunidades" className="hover:text-[#216089] transition">Oportunidades</a>
-            <a href="#contacto" className="hover:text-[#216089] transition">Contacto</a>
+            <a href="#inicio">Inicio</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#oportunidades">Oportunidades</a>
+            <a href="#contacto">Contacto</a>
           </nav>
 
-          <div className="flex items-center gap-4 text-[#216089] ml-2">
+          <div className="flex gap-4 text-[#216089]">
             <a href="https://www.linkedin.com/company/workofficeuy/posts/?feedView=all" target="_blank">
-              <FaLinkedinIn size={18} />
+              <FaLinkedinIn />
             </a>
             <a href="https://www.instagram.com/workofficeuy?igsh=NjFobGM2ODN4OTF2" target="_blank">
-              <FaInstagram size={18} />
+              <FaInstagram />
             </a>
           </div>
 
@@ -80,7 +80,11 @@ export default function Home() {
         </video>
         <div className="absolute inset-0 bg-black/50" />
 
-        <motion.div className="relative z-10 max-w-4xl px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="relative z-10 max-w-4xl px-6"
+        >
           <h1 className="text-white text-4xl md:text-6xl font-bold">
             Encontramos el talento que impulsa tu organización
           </h1>
@@ -102,36 +106,28 @@ export default function Home() {
       </section>
 
       {/* MISIÓN + VISIÓN */}
-      <section className="py-24 px-6 bg-white space-y-20">
-        <div className="max-w-6xl mx-auto space-y-20">
+      <section className="py-24 px-6 space-y-20">
 
-          {/* MISIÓN */}
-          <motion.div className="grid md:grid-cols-2 items-center gap-10 bg-[#216089] rounded-2xl shadow-xl overflow-hidden">
-            <div className="p-10 text-white">
-              <h3 className="text-3xl font-bold mb-4">Misión</h3>
-              <p className="leading-relaxed text-white/90">
-                Brindar soluciones personalizadas en Recursos Humanos, con atención profesional y procesos de calidad, trabajando junto a cada cliente para responder a sus necesidades con confianza y eficacia.
-              </p>
-            </div>
+        <motion.div className="grid md:grid-cols-2 bg-[#216089] rounded-2xl overflow-hidden shadow-xl">
+          <div className="p-10 text-white">
+            <h3 className="text-3xl font-bold mb-4">Misión</h3>
+            <p>
+              Brindar soluciones personalizadas en Recursos Humanos, con atención profesional y procesos de calidad, trabajando junto a cada cliente para responder a sus necesidades con confianza y eficacia.
+            </p>
+          </div>
+          <Image src="/hero-mision.jpg" alt="mision" width={900} height={600} />
+        </motion.div>
 
-            <Image src="/hero-mision.jpg" alt="Misión" width={900} height={600} className="w-full h-full object-cover" />
-          </motion.div>
+        <motion.div className="grid md:grid-cols-2 bg-white rounded-2xl overflow-hidden shadow-xl border">
+          <Image src="/hero-vision.jpg" alt="vision" width={900} height={600} />
+          <div className="p-10">
+            <h3 className="text-3xl font-bold text-[#216089] mb-4">Visión</h3>
+            <p className="text-gray-600">
+              Continuar siendo referentes en la gestión del Capital Humano, como aliados estratégicos de las organizaciones, con un equipo comprometido con el trato humano y la responsabilidad institucional.
+            </p>
+          </div>
+        </motion.div>
 
-          {/* VISIÓN */}
-          <motion.div className="grid md:grid-cols-2 items-center gap-10 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
-
-            <Image src="/hero-vision.jpg" alt="Visión" width={900} height={600} className="w-full h-full object-cover md:order-1 order-2" />
-
-            <div className="p-10 md:order-2 order-1">
-              <h3 className="text-3xl font-bold text-[#216089] mb-4">Visión</h3>
-              <p className="leading-relaxed text-gray-600">
-                Continuar siendo referentes en la gestión del Capital Humano, como aliados estratégicos de las organizaciones, con un equipo comprometido con el trato humano y la responsabilidad institucional.
-              </p>
-            </div>
-
-          </motion.div>
-
-        </div>
       </section>
 
       {/* VALORES */}
@@ -139,57 +135,61 @@ export default function Home() {
         <h2 className="text-white text-3xl font-bold mb-10">Valores que nos orientan</h2>
 
         <div className="flex flex-wrap justify-center gap-4">
-          {values.map((v) => (
-            <motion.div key={v} className="bg-white text-[#216089] px-6 py-3 rounded-full font-semibold">
+          {values.map(v => (
+            <div key={v} className="bg-white text-[#216089] px-6 py-3 rounded-full">
               {v}
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
 
       {/* EQUIPO */}
       <motion.section className="py-24 max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
-
         <div>
           <h3 className="text-3xl font-bold text-[#216089] mb-4">Nuestro equipo</h3>
-
           <p className="text-gray-700 leading-8">
-            Contamos con profesionales especializados en Psicología Laboral, Recursos Humanos, Administración y Gestión Organizacional, trabajando de forma coordinada para garantizar procesos eficientes, seguimiento cercano y respuestas adaptadas a cada cliente.
+            Contamos con profesionales especializados en Psicología Laboral, Recursos Humanos, Administración y Gestión Organizacional, trabajando de forma coordinada para garantizar procesos eficientes y respuestas adaptadas a cada cliente.
             <br /><br />
-            Las responsabilidades se encuentran claramente delimitadas, con seguimiento activo de las instancias técnicas y de gestión.
+            Las responsabilidades se encuentran claramente delimitadas con seguimiento técnico continuo.
           </p>
         </div>
-
-        <Image src="/hero-equipo.jpg" alt="Equipo" width={800} height={500} className="rounded-xl shadow-xl w-full object-cover" />
-
+        <Image src="/hero-equipo.jpg" alt="equipo" width={800} height={500} className="rounded-xl" />
       </motion.section>
 
       {/* CLIENTES */}
-      <section className="bg-gray-50 py-20 text-center">
+      <section className="py-20 bg-gray-50 text-center">
         <h2 className="text-2xl font-bold text-[#216089] mb-10">
           Empresas que confían en nosotros
         </h2>
+
+        <div className="flex gap-6 overflow-x-auto px-10 scrollbar-hide">
+          {[1,2,3,4,5].map(n => (
+            <div key={n} className="min-w-[160px] bg-white p-4 rounded-xl shadow">
+              <Image src={`/cliente${n}.png`} alt="" width={120} height={60} />
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* SERVICIOS */}
       <section id="servicios" className="py-24 max-w-5xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center text-[#216089] mb-10">Servicios</h2>
+        <h2 className="text-3xl font-bold text-center text-[#216089] mb-10">
+          Servicios
+        </h2>
 
         <div className="space-y-4">
-          {services.map((s) => (
+          {services.map(s => (
             <div key={s.title} className="border rounded-xl overflow-hidden">
               <button
                 onClick={() => setOpenService(openService === s.title ? null : s.title)}
-                className="w-full p-5 bg-[#216089] text-white font-semibold flex justify-between"
+                className="w-full flex justify-between p-5 bg-[#216089] text-white"
               >
                 {s.title}
                 <span>{openService === s.title ? "−" : "+"}</span>
               </button>
 
               {openService === s.title && (
-                <div className="p-5 text-gray-700 bg-white">
-                  {s.desc}
-                </div>
+                <div className="p-5">{s.desc}</div>
               )}
             </div>
           ))}
@@ -197,30 +197,33 @@ export default function Home() {
       </section>
 
       {/* CONTACTO */}
-      <section id="contacto" className="py-24 max-w-4xl mx-auto px-6 text-center">
+      <section id="contacto" className="py-24 text-center">
         <h2 className="text-3xl font-bold text-[#216089] mb-8">Contacto</h2>
+
+        <div className="flex justify-center gap-4 mb-10">
+          <button className="bg-[#216089] text-white px-6 py-3 rounded-full">
+            Empresas
+          </button>
+          <button className="border border-[#216089] text-[#216089] px-6 py-3 rounded-full">
+            Postulantes
+          </button>
+        </div>
       </section>
 
       {/* FOOTER */}
       <footer className="bg-[#216089] text-white py-12">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-10 items-center">
+        <div className="grid md:grid-cols-3 max-w-6xl mx-auto px-6">
 
-            <div>
-              <Image src="/mapa-uruguay.png" alt="Mapa" width={220} height={170} />
-            </div>
+          <Image src="/mapa-uruguay.png" alt="" width={220} height={160} />
 
-            <div className="text-center">
-              <p>Convención 1343, Piso 4 Of. 407</p>
-              <p>(+598) 2900 8504</p>
-              <p>Montevideo | Uruguay</p>
-            </div>
-
-            <div className="flex justify-center">
-              <Image src="/iconlogo-workoffice.png" alt="Logo" width={150} height={150} />
-            </div>
-
+          <div className="text-center">
+            <p>Convención 1343, Piso 4 Of. 407</p>
+            <p>(+598) 2900 8504</p>
+            <p>Montevideo | Uruguay</p>
           </div>
+
+          <Image src="/iconlogo-workoffice.png" alt="" width={150} height={150} />
+
         </div>
       </footer>
 
