@@ -377,7 +377,7 @@ export default function Home() {
 
       {/* MAPA (IZQUIERDA) */}
       <div className="flex justify-center md:justify-start">
-        <div className="w-[180px] h-[140px] overflow-hidden rounded-xl shadow-lg">
+        <div className="w-[220px] h-[170px] overflow-hidden rounded-xl shadow-lg">
           <Image
             src="/mapa-uruguay.png"
             alt="Mapa Montevideo"
