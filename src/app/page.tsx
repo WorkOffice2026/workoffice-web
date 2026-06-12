@@ -279,46 +279,33 @@ export default function Home() {
   </div>
 </section>
 
- {/* SERVICIOS */}
-<section id="servicios" className="py-24 max-w-5xl mx-auto px-6">
-  <h2 className="text-3xl font-bold text-center text-[#216089] mb-10">
-    Servicios
-  </h2>
+      {/* SERVICIOS */}
+      <section id="servicios" className="py-24 max-w-5xl mx-auto px-6">
+        <h2 className="text-3xl font-bold text-center text-[#216089] mb-10">
+          Servicios
+        </h2>
 
-  <div className="space-y-4">
-    {services.map((s) => (
-      <div key={s.title} className="border rounded-xl overflow-hidden shadow-sm">
+        <div className="space-y-4">
+          {services.map((s) => (
+            <div key={s.title} className="border rounded-xl overflow-hidden">
+              <button
+                onClick={() =>
+                  setOpenService(openService === s.title ? null : s.title)
+                }
+                className="w-full text-left p-5 bg-[#216089] text-white font-semibold"
+              >
+                {s.title}
+              </button>
 
-        {/* BOTÓN */}
-        <button
-          onClick={() =>
-            setOpenService(openService === s.title ? null : s.title)
-          }
-          className="w-full flex justify-between items-center p-5 bg-[#216089] text-white font-semibold"
-        >
-          <span>{s.title}</span>
-
-          <span className="text-xl font-bold">
-            {openService === s.title ? "−" : "+"}
-          </span>
-        </button>
-
-        {/* CONTENIDO */}
-        {openService === s.title && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="p-5 text-gray-700 bg-white"
-          >
-            {s.desc}
-          </motion.div>
-        )}
-      </div>
-    ))}
-  </div>
-</section>
+              {openService === s.title && (
+                <div className="p-5 text-gray-700 bg-white">
+                  {s.desc}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* OPORTUNIDADES LABORALES */}
       <section id="oportunidades" className="py-20 text-center bg-gray-50">
@@ -378,15 +365,50 @@ export default function Home() {
         )}
       </section>
 
-      {/* FOOTER */}
-      <footer className="bg-[#216089] text-white text-center py-10">
-        <div className="flex flex-col items-center gap-3">
-          <Image src="/mapa-uruguay.png" alt="Mapa" width={180} height={120} />
-          <p>Convención 1343, Montevideo</p>
-          <p>+598 2900 8504</p>
-        </div>
-      </footer>
+{/* FOOTER */}
+<footer className="bg-[#216089] text-white py-12">
+  <div className="max-w-6xl mx-auto px-6">
 
+    <h2 className="text-2xl font-bold mb-10 text-center md:text-left">
+      ¿Dónde estamos?
+    </h2>
+
+    <div className="grid md:grid-cols-3 gap-10 items-center">
+
+      {/* MAPA (IZQUIERDA) */}
+      <div className="flex justify-center md:justify-start">
+        <div className="w-[180px] h-[140px] overflow-hidden rounded-xl shadow-lg">
+          <Image
+            src="/mapa-uruguay.png"
+            alt="Mapa Montevideo"
+            width={180}
+            height={140}
+            className="object-cover w-full h-full"
+          />
+        </div>
+      </div>
+
+      {/* DATOS (CENTRO) */}
+      <div className="text-center">
+        <p className="font-semibold text-lg">
+          Convención 1343, Piso 4 Of. 407
+        </p>
+
+        <p className="mt-2">
+          (+598) 2900 8504
+        </p>
+
+        <p className="mt-2 text-white/80">
+          Montevideo | Uruguay
+        </p>
+      </div>
+
+      {/* ESPACIO DERECHA (equilibrio visual) */}
+      <div className="hidden md:block"></div>
+
+    </div>
+  </div>
+</footer>
     </main>
   );
 }
