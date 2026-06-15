@@ -6,6 +6,7 @@ import Image from "next/image";
 import { FaLinkedinIn, FaInstagram } from "react-icons/fa";
 
 export default function Home() {
+  console.log("🔥 CONTACT PAGE RENDER");
   const [openService, setOpenService] = useState<string | null>(null);
   const [openForm, setOpenForm] = useState<"empresas" | "postulantes" | null>(null);
   const [status, setStatus] = useState<null | "success" | "error">(null);
@@ -329,7 +330,10 @@ export default function Home() {
   <div className="flex justify-center gap-4 mb-10">
     <button
       type="button"
-      onClick={() => setOpenForm("empresas")}
+      onClick={() => {
+  console.log("📌 CLICK EMPRESAS");
+  setOpenForm("empresas");
+}}
       className="bg-[#216089] text-white px-6 py-3 rounded-full"
     >
       Empresas
@@ -350,6 +354,8 @@ export default function Home() {
       className="space-y-3 text-left"
       onSubmit={async (e) => {
         e.preventDefault();
+
+        console.log("🔥 SUBMIT EMPRESAS EJECUTADO"); // 👈 PRUEBA AGREGADA
 
         setStatus(null);
 
@@ -407,6 +413,8 @@ export default function Home() {
       className="space-y-3 text-left"
       onSubmit={async (e) => {
         e.preventDefault();
+
+        console.log("🔥 SUBMIT POSTULANTES EJECUTADO"); // 👈 PRUEBA AGREGADA
 
         setStatus(null);
 
