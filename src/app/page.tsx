@@ -168,18 +168,43 @@ export default function Home() {
 
 </section>
 
-      {/* VALORES */}
-      <section className="bg-[#216089] py-20 text-center">
-        <h2 className="text-white text-3xl font-bold mb-10">Valores que nos orientan</h2>
+{/* VALORES */}
+<section className="bg-[#216089] py-20 text-center">
+  <h2 className="text-white text-3xl font-bold mb-10">
+    Valores que nos orientan
+  </h2>
 
-        <div className="flex flex-wrap justify-center gap-4">
-          {values.map(v => (
-            <div key={v} className="bg-white text-[#216089] px-6 py-3 rounded-full">
-              {v}
-            </div>
-          ))}
-        </div>
-      </section>
+  <motion.div
+    className="flex flex-wrap justify-center gap-4"
+    initial="hidden"
+    whileInView="show"
+    viewport={{ once: true, amount: 0.3 }}
+    variants={{
+      hidden: {},
+      show: {
+        transition: {
+          staggerChildren: 0.12
+        }
+      }
+    }}
+  >
+    {values.map(v => (
+      <motion.div
+        key={v}
+        variants={{
+          hidden: { opacity: 0, y: 10, scale: 0.95 },
+          show: { opacity: 1, y: 0, scale: 1 }
+        }}
+        transition={{ duration: 0.45, ease: "easeOut" }}
+        whileHover={{ scale: 1.08 }}
+        className="bg-white text-[#216089] px-6 py-3 rounded-full flex items-center gap-2 cursor-default"
+      >
+        <span className="text-[#216089] text-xs font-bold">✓</span>
+        {v}
+      </motion.div>
+    ))}
+  </motion.div>
+</section>
 
       {/* EQUIPO */}
       <motion.section className="py-24 max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
