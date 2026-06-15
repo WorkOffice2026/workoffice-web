@@ -10,6 +10,7 @@ export default function Home() {
   const [openService, setOpenService] = useState<string | null>(null);
   const [openForm, setOpenForm] = useState<"empresas" | "postulantes" | null>(null);
   const [status, setStatus] = useState<null | "success" | "error">(null);
+  const [loading, setLoading] = useState(false);
 
   const services = [
     {
@@ -298,6 +299,31 @@ export default function Home() {
   </div>
 </section>
 
+{/* OPORTUNIDADES */}
+<section
+  id="oportunidades"
+  className="py-24 bg-gray-50 text-center px-6"
+>
+
+  <h2 className="text-3xl font-bold text-[#216089] mb-6">
+    Oportunidades
+  </h2>
+
+  <p className="text-gray-600 mb-10 text-lg">
+    Explorá nuestras vacantes activas.
+  </p>
+
+  <a
+    href="https://www.buscojobs.com.uy/empresas/214536/work-office"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center bg-[#216089] text-white px-8 py-4 rounded-full hover:scale-105 transition duration-300"
+  >
+    Ver oportunidades
+  </a>
+
+</section>
+
       {/* SERVICIOS */}
       <section id="servicios" className="py-24 max-w-5xl mx-auto px-6">
         <h2 className="text-3xl font-bold text-center text-[#216089] mb-10">
@@ -331,9 +357,10 @@ export default function Home() {
     <button
       type="button"
       onClick={() => {
-  console.log("📌 CLICK EMPRESAS");
-  setOpenForm("empresas");
-}}
+        console.log("📌 CLICK EMPRESAS");
+        setOpenForm("empresas");
+        setStatus(null);
+      }}
       className="bg-[#216089] text-white px-6 py-3 rounded-full"
     >
       Empresas
@@ -341,7 +368,10 @@ export default function Home() {
 
     <button
       type="button"
-      onClick={() => setOpenForm("postulantes")}
+      onClick={() => {
+        setOpenForm("postulantes");
+        setStatus(null);
+      }}
       className="border border-[#216089] text-[#216089] px-6 py-3 rounded-full"
     >
       Postulantes
@@ -355,28 +385,30 @@ export default function Home() {
       onSubmit={async (e) => {
         e.preventDefault();
 
-        console.log("🔥 SUBMIT EMPRESAS EJECUTADO"); // 👈 PRUEBA AGREGADA
+        console.log("🔥 SUBMIT EMPRESAS");
 
         setStatus(null);
 
-        const formData = new FormData(e.currentTarget);
-        formData.append("type", "empresas");
-
         try {
+          const formData = new FormData(e.currentTarget);
+          formData.append("type", "empresas");
+
           const res = await fetch("/api/contact", {
             method: "POST",
             body: formData,
           });
 
-          const data = await res.json();
+          console.log("📡 STATUS:", res.status);
 
-          if (data.ok) {
+          // 🔥 FIX REAL: evita falsos errores por respuestas inconsistentes
+          if (res.ok && res.status >= 200 && res.status < 300) {
             setStatus("success");
             e.currentTarget.reset();
           } else {
             setStatus("error");
           }
-        } catch (error) {
+        } catch (err) {
+          console.log("❌ FETCH ERROR:", err);
           setStatus("error");
         }
       }}
@@ -392,7 +424,6 @@ export default function Home() {
         Enviar
       </button>
 
-      {/* MENSAJE STATUS */}
       {status === "success" && (
         <p className="text-green-600 mt-4 font-medium">
           ✔ Correo enviado correctamente
@@ -409,36 +440,43 @@ export default function Home() {
 
   {/* POSTULANTES */}
   {openForm === "postulantes" && (
-    <form
-      className="space-y-3 text-left"
-      onSubmit={async (e) => {
-        e.preventDefault();
+  <form
+  className="space-y-3 text-left"
+  onSubmit={async (e) => {
+  e.preventDefault();
 
-        console.log("🔥 SUBMIT POSTULANTES EJECUTADO"); // 👈 PRUEBA AGREGADA
+  console.log("🔥 SUBMIT POSTULANTES");
 
-        setStatus(null);
+  const form = e.currentTarget;
 
-        const formData = new FormData(e.currentTarget);
-        formData.append("type", "postulantes");
+  setLoading(true);
+  setStatus(null);
 
-        try {
-          const res = await fetch("/api/contact", {
-            method: "POST",
-            body: formData,
-          });
+  try {
+    const formData = new FormData(form);
+    formData.append("type", "postulantes");
 
-          const data = await res.json();
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      body: formData,
+    });
 
-          if (data.ok) {
-            setStatus("success");
-            e.currentTarget.reset();
-          } else {
-            setStatus("error");
-          }
-        } catch (error) {
-          setStatus("error");
-        }
-      }}
+    console.log("📡 STATUS:", res.status);
+
+    if (res.ok) {
+      setStatus("success");
+      form.reset();
+    } else {
+      setStatus("error");
+    }
+
+  } catch (err) {
+    console.log("❌ FETCH ERROR:", err);
+    setStatus("error");
+  } finally {
+    setLoading(false);
+  }
+}}
     >
       <input name="name" className="border p-2 w-full" placeholder="Nombre" />
       <input name="email" className="border p-2 w-full" placeholder="Email" />
@@ -446,13 +484,13 @@ export default function Home() {
       <textarea name="message" className="border p-2 w-full" placeholder="Mensaje" />
 
       <button
-        type="submit"
-        className="bg-[#216089] text-white px-6 py-3 rounded-full mt-4"
-      >
-        Enviar
-      </button>
+  type="submit"
+  disabled={loading}
+  className="bg-[#216089] text-white px-6 py-3 rounded-full mt-4 disabled:opacity-50"
+>
+  {loading ? "Enviando..." : "Enviar"}
+</button>
 
-      {/* MENSAJE STATUS */}
       {status === "success" && (
         <p className="text-green-600 mt-4 font-medium">
           ✔ Correo enviado correctamente
@@ -470,20 +508,43 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="bg-[#216089] text-white py-12">
-        <div className="grid md:grid-cols-3 max-w-6xl mx-auto px-6">
+  <div className="grid md:grid-cols-3 max-w-6xl mx-auto px-6 items-center gap-8">
 
-          <Image src="/mapa-uruguay.png" alt="" width={220} height={160} />
+    {/* MAPA */}
+    <div className="flex flex-col items-center">
+      <h3 className="text-xl font-semibold mb-4">
+        ¿Dónde estamos?
+      </h3>
 
-          <div className="text-center">
-            <p>Convención 1343, Piso 4 Of. 407</p>
-            <p>(+598) 2900 8504</p>
-            <p>Montevideo | Uruguay</p>
-          </div>
+      <Image
+        src="/mapa-uruguay.png"
+        alt="Ubicación Work Office"
+        width={220}
+        height={160}
+      />
+    </div>
 
-          <Image src="/iconlogo-workoffice.png" alt="" width={150} height={150} />
+    {/* DATOS DE CONTACTO */}
+    <div className="text-center space-y-2">
+      <p>Convención 1343, Piso 4 Of. 407</p>
 
-        </div>
-      </footer>
+      <p>(+598) 2900 8504</p>
+
+      <p>Montevideo | Uruguay</p>
+    </div>
+
+    {/* LOGO */}
+    <div className="flex justify-center">
+      <Image
+        src="/iconlogo-workoffice.png"
+        alt="Logo Work Office"
+        width={150}
+        height={150}
+      />
+    </div>
+
+  </div>
+</footer>
 
     </main>
   );
