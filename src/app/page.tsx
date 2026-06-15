@@ -339,7 +339,7 @@ export default function Home() {
         alt="Oportunidades laborales"
         width={600}
         height={400}
-        className="rounded-xl shadow-lg"
+        className="rounded-xl"
       />
 
     </div>
