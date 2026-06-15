@@ -337,8 +337,8 @@ export default function Home() {
       <Image
         src="/oportunidades.png"
         alt="Oportunidades laborales"
-        width={600}
-        height={400}
+        width={750}
+        height={550}
       />
 
     </div>
