@@ -302,43 +302,47 @@ export default function Home() {
 {/* OPORTUNIDADES */}
 <section
   id="oportunidades"
-  className="py-24 max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center"
+  className="py-24 bg-[#216089]"
 >
 
-  {/* TEXTO */}
-  <div className="flex flex-col justify-center">
+  <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
 
-    <h2 className="text-3xl font-bold text-[#216089] mb-4">
-      Oportunidades
-    </h2>
+    {/* TEXTO */}
+    <div className="flex flex-col justify-center">
 
-    <div className="w-16 h-1 bg-[#216089] rounded-full mb-6" />
+      <h2 className="text-3xl font-bold text-white mb-4">
+        Oportunidades
+      </h2>
 
-    <p className="text-gray-700 text-lg mb-8">
-      Explorá nuestras vacantes activas.
-    </p>
+      <div className="w-16 h-1 bg-white rounded-full mb-6" />
 
-    <a
-      href="https://www.buscojobs.com.uy/empresas/214536/work-office"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex w-fit items-center bg-[#216089] text-white px-8 py-4 rounded-full hover:scale-105 transition duration-300"
-    >
-      Ver oportunidades
-    </a>
+      <p className="text-white text-lg mb-8">
+        Explorá nuestras vacantes activas.
+      </p>
 
-  </div>
+      <a
+        href="https://www.buscojobs.com.uy/empresas/214536/work-office"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex w-fit items-center bg-white text-[#216089] px-8 py-4 rounded-full font-semibold hover:scale-105 transition duration-300"
+      >
+        Ver oportunidades
+      </a>
 
-  {/* IMAGEN */}
-  <div className="flex justify-center">
+    </div>
 
-    <Image
-      src="/oportunidades.png"
-      alt="Oportunidades laborales"
-      width={600}
-      height={400}
-      className="rounded-xl shadow-lg"
-    />
+    {/* IMAGEN */}
+    <div className="flex justify-center">
+
+      <Image
+        src="/oportunidades.png"
+        alt="Oportunidades laborales"
+        width={600}
+        height={400}
+        className="rounded-xl shadow-lg"
+      />
+
+    </div>
 
   </div>
 
