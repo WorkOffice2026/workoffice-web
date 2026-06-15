@@ -106,26 +106,24 @@ export default function Home() {
       </section>
 
 {/* MISIÓN + VISIÓN */}
-<section className="py-20 px-6 space-y-14 [perspective:1000px]">
+<section className="py-20 px-6 space-y-14">
 
   {/* MISIÓN */}
   <motion.div
-    initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
+    initial={{ opacity: 0, x: -40 }}
+    whileInView={{ opacity: 1, x: 0 }}
     viewport={{ once: true, amount: 0.3 }}
     transition={{ duration: 0.8, ease: "easeOut" }}
-    whileHover={{
-      scale: 1.015,
-      rotateX: 1.5,
-      rotateY: -1.5,
-      translateY: -4,
-    }}
-    style={{ transformStyle: "preserve-3d" }}
-    className="grid md:grid-cols-2 bg-[#216089] rounded-xl overflow-hidden shadow-md max-w-4xl mx-auto"
+    className="grid md:grid-cols-2 bg-[#216089] rounded-xl overflow-hidden shadow-lg max-w-6xl mx-auto"
   >
-    <div className="p-8 text-white">
-      <h3 className="text-2xl font-bold mb-3">Misión</h3>
-      <p className="text-white/90 leading-relaxed">
+    <div className="p-10 lg:p-12 text-white flex flex-col justify-center">
+      <h3 className="text-3xl font-bold mb-4">
+        Misión
+      </h3>
+
+      <div className="w-16 h-1 bg-white rounded-full mb-6" />
+
+      <p className="text-white/90 leading-relaxed text-lg">
         Brindar soluciones personalizadas en Recursos Humanos, con atención profesional y procesos de calidad, trabajando junto a cada cliente para responder a sus necesidades con confianza y eficacia.
       </p>
     </div>
@@ -141,18 +139,11 @@ export default function Home() {
 
   {/* VISIÓN */}
   <motion.div
-    initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
+    initial={{ opacity: 0, x: 40 }}
+    whileInView={{ opacity: 1, x: 0 }}
     viewport={{ once: true, amount: 0.3 }}
     transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
-    whileHover={{
-      scale: 1.015,
-      rotateX: -1.5,
-      rotateY: 1.5,
-      translateY: -4,
-    }}
-    style={{ transformStyle: "preserve-3d" }}
-    className="grid md:grid-cols-2 bg-white rounded-xl overflow-hidden shadow-md border max-w-4xl mx-auto"
+    className="grid md:grid-cols-2 bg-white rounded-xl overflow-hidden border shadow-lg max-w-6xl mx-auto"
   >
     <Image
       src="/hero-vision.jpg"
@@ -162,11 +153,14 @@ export default function Home() {
       className="object-cover w-full h-full md:order-1 order-2"
     />
 
-    <div className="p-8 md:order-2 order-1">
-      <h3 className="text-2xl font-bold text-[#216089] mb-3">
+    <div className="p-10 lg:p-12 md:order-2 order-1 flex flex-col justify-center">
+      <h3 className="text-3xl font-bold text-[#216089] mb-4">
         Visión
       </h3>
-      <p className="text-gray-600 leading-relaxed">
+
+      <div className="w-16 h-1 bg-[#216089] rounded-full mb-6" />
+
+      <p className="text-gray-600 leading-relaxed text-lg">
         Continuar siendo referentes en la gestión del Capital Humano, como aliados estratégicos de las organizaciones, con un equipo comprometido con el trato humano y la responsabilidad institucional.
       </p>
     </div>
