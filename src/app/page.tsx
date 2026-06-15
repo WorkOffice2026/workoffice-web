@@ -302,25 +302,45 @@ export default function Home() {
 {/* OPORTUNIDADES */}
 <section
   id="oportunidades"
-  className="py-24 bg-gray-50 text-center px-6"
+  className="py-24 max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center"
 >
 
-  <h2 className="text-3xl font-bold text-[#216089] mb-6">
-    Oportunidades
-  </h2>
+  {/* TEXTO */}
+  <div className="flex flex-col justify-center">
 
-  <p className="text-gray-600 mb-10 text-lg">
-    Explorá nuestras vacantes activas.
-  </p>
+    <h2 className="text-3xl font-bold text-[#216089] mb-4">
+      Oportunidades
+    </h2>
 
-  <a
-    href="https://www.buscojobs.com.uy/empresas/214536/work-office"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-flex items-center bg-[#216089] text-white px-8 py-4 rounded-full hover:scale-105 transition duration-300"
-  >
-    Ver oportunidades
-  </a>
+    <div className="w-16 h-1 bg-[#216089] rounded-full mb-6" />
+
+    <p className="text-gray-700 text-lg mb-8">
+      Explorá nuestras vacantes activas.
+    </p>
+
+    <a
+      href="https://www.buscojobs.com.uy/empresas/214536/work-office"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex w-fit items-center bg-[#216089] text-white px-8 py-4 rounded-full hover:scale-105 transition duration-300"
+    >
+      Ver oportunidades
+    </a>
+
+  </div>
+
+  {/* IMAGEN */}
+  <div className="flex justify-center">
+
+    <Image
+      src="/oportunidades.png"
+      alt="Oportunidades laborales"
+      width={600}
+      height={400}
+      className="rounded-xl shadow-lg"
+    />
+
+  </div>
 
 </section>
 
