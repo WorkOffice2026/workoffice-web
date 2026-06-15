@@ -206,18 +206,36 @@ export default function Home() {
   </motion.div>
 </section>
 
-      {/* EQUIPO */}
-      <motion.section className="py-24 max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <h3 className="text-3xl font-bold text-[#216089] mb-4">Nuestro equipo</h3>
-          <p className="text-gray-700 leading-8">
-            Contamos con profesionales especializados en Psicología Laboral, Recursos Humanos, Administración y Gestión Organizacional, trabajando de forma coordinada para garantizar procesos eficientes y respuestas adaptadas a cada cliente.
-            <br /><br />
-            Las responsabilidades se encuentran claramente delimitadas con seguimiento técnico continuo.
-          </p>
-        </div>
-        <Image src="/hero-equipo.jpg" alt="equipo" width={800} height={500} className="rounded-xl" />
-      </motion.section>
+{/* EQUIPO */}
+<motion.section
+  initial={{ opacity: 0, x: -40 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true, amount: 0.3 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  className="py-24 max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center"
+>
+  <div className="flex flex-col justify-center">
+    <h3 className="text-3xl font-bold text-[#216089] mb-4">
+      Nuestro equipo
+    </h3>
+
+    <div className="w-16 h-1 bg-[#216089] rounded-full mb-6" />
+
+    <p className="text-gray-700 leading-8 text-lg">
+      Contamos con profesionales especializados en Psicología Laboral, Recursos Humanos, Administración y Gestión Organizacional, trabajando de forma coordinada para garantizar procesos eficientes y respuestas adaptadas a cada cliente.
+      <br /><br />
+      Las responsabilidades se encuentran claramente delimitadas con seguimiento técnico continuo.
+    </p>
+  </div>
+
+  <Image
+    src="/hero-equipo.jpg"
+    alt="equipo"
+    width={800}
+    height={500}
+    className="rounded-xl shadow-lg"
+  />
+</motion.section>
 
 <section className="bg-gray-50 py-20 text-center">
   <h2 className="text-2xl font-bold text-[#216089] mb-10">
