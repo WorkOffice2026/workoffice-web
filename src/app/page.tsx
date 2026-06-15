@@ -327,6 +327,7 @@ export default function Home() {
 
   <div className="flex justify-center gap-4 mb-10">
     <button
+      type="button"
       onClick={() => setOpenForm("empresas")}
       className="bg-[#216089] text-white px-6 py-3 rounded-full"
     >
@@ -334,6 +335,7 @@ export default function Home() {
     </button>
 
     <button
+      type="button"
       onClick={() => setOpenForm("postulantes")}
       className="border border-[#216089] text-[#216089] px-6 py-3 rounded-full"
     >
@@ -341,21 +343,66 @@ export default function Home() {
     </button>
   </div>
 
+  {/* EMPRESAS */}
   {openForm === "empresas" && (
-    <form className="space-y-3 text-left">
-      <input className="border p-2 w-full" placeholder="Empresa" />
-      <input className="border p-2 w-full" placeholder="Contacto" />
-      <input className="border p-2 w-full" placeholder="Email" />
-      <textarea className="border p-2 w-full" placeholder="Mensaje" />
+    <form
+      className="space-y-3 text-left"
+      onSubmit={async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.currentTarget);
+        formData.append("type", "empresas");
+
+        await fetch("/api/contact", {
+          method: "POST",
+          body: formData,
+        });
+
+        e.currentTarget.reset();
+      }}
+    >
+      <input name="name" className="border p-2 w-full" placeholder="Empresa" />
+      <input name="email" className="border p-2 w-full" placeholder="Email" />
+      <textarea name="message" className="border p-2 w-full" placeholder="Mensaje" />
+
+      <button
+        type="submit"
+        className="bg-[#216089] text-white px-6 py-3 rounded-full mt-4"
+      >
+        Enviar
+      </button>
     </form>
   )}
 
+  {/* POSTULANTES */}
   {openForm === "postulantes" && (
-    <form className="space-y-3 text-left">
-      <input className="border p-2 w-full" placeholder="Nombre" />
-      <input className="border p-2 w-full" placeholder="Email" />
-      <input type="file" className="border p-2 w-full" />
-      <textarea className="border p-2 w-full" placeholder="Mensaje" />
+    <form
+      className="space-y-3 text-left"
+      onSubmit={async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.currentTarget);
+        formData.append("type", "postulantes");
+
+        await fetch("/api/contact", {
+          method: "POST",
+          body: formData,
+        });
+
+        e.currentTarget.reset();
+      }}
+    >
+      <input name="name" className="border p-2 w-full" placeholder="Nombre" />
+      <input name="email" className="border p-2 w-full" placeholder="Email" />
+      <input name="cv" type="file" className="border p-2 w-full" />
+      <textarea name="message" className="border p-2 w-full" placeholder="Mensaje" />
+
+      <button
+        type="submit"
+        className="bg-[#216089] text-white px-6 py-3 rounded-full mt-4"
+      >
+        Enviar
+      </button>
     </form>
   )}
 </section>
