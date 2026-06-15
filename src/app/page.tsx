@@ -8,6 +8,7 @@ import { FaLinkedinIn, FaInstagram } from "react-icons/fa";
 export default function Home() {
   const [openService, setOpenService] = useState<string | null>(null);
   const [openForm, setOpenForm] = useState<"empresas" | "postulantes" | null>(null);
+  const [status, setStatus] = useState<null | "success" | "error">(null);
 
   const services = [
     {
@@ -350,15 +351,28 @@ export default function Home() {
       onSubmit={async (e) => {
         e.preventDefault();
 
+        setStatus(null);
+
         const formData = new FormData(e.currentTarget);
         formData.append("type", "empresas");
 
-        await fetch("/api/contact", {
-          method: "POST",
-          body: formData,
-        });
+        try {
+          const res = await fetch("/api/contact", {
+            method: "POST",
+            body: formData,
+          });
 
-        e.currentTarget.reset();
+          const data = await res.json();
+
+          if (data.ok) {
+            setStatus("success");
+            e.currentTarget.reset();
+          } else {
+            setStatus("error");
+          }
+        } catch (error) {
+          setStatus("error");
+        }
       }}
     >
       <input name="name" className="border p-2 w-full" placeholder="Empresa" />
@@ -371,6 +385,19 @@ export default function Home() {
       >
         Enviar
       </button>
+
+      {/* MENSAJE STATUS */}
+      {status === "success" && (
+        <p className="text-green-600 mt-4 font-medium">
+          ✔ Correo enviado correctamente
+        </p>
+      )}
+
+      {status === "error" && (
+        <p className="text-red-600 mt-4 font-medium">
+          ✖ Hubo un error al enviar. Intenta nuevamente.
+        </p>
+      )}
     </form>
   )}
 
@@ -381,15 +408,28 @@ export default function Home() {
       onSubmit={async (e) => {
         e.preventDefault();
 
+        setStatus(null);
+
         const formData = new FormData(e.currentTarget);
         formData.append("type", "postulantes");
 
-        await fetch("/api/contact", {
-          method: "POST",
-          body: formData,
-        });
+        try {
+          const res = await fetch("/api/contact", {
+            method: "POST",
+            body: formData,
+          });
 
-        e.currentTarget.reset();
+          const data = await res.json();
+
+          if (data.ok) {
+            setStatus("success");
+            e.currentTarget.reset();
+          } else {
+            setStatus("error");
+          }
+        } catch (error) {
+          setStatus("error");
+        }
       }}
     >
       <input name="name" className="border p-2 w-full" placeholder="Nombre" />
@@ -403,6 +443,19 @@ export default function Home() {
       >
         Enviar
       </button>
+
+      {/* MENSAJE STATUS */}
+      {status === "success" && (
+        <p className="text-green-600 mt-4 font-medium">
+          ✔ Correo enviado correctamente
+        </p>
+      )}
+
+      {status === "error" && (
+        <p className="text-red-600 mt-4 font-medium">
+          ✖ Hubo un error al enviar. Intenta nuevamente.
+        </p>
+      )}
     </form>
   )}
 </section>
