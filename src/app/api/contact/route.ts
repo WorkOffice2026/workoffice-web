@@ -2,6 +2,7 @@ import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
   try {
+    console.log("🔥 API /contact fue llamada");
     const formData = await req.formData();
 
     const type = String(formData.get("type"));
