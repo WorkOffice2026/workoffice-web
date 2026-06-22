@@ -18,11 +18,11 @@ export default function Home() {
       desc: "Identificamos y evaluamos candidatos alineados a las necesidades de cada organización.",
     },
     {
-      title: "Personal Temporario",
+      title: "Suministro de Personal Temporario",
       desc: "Soluciones ágiles para cubrir necesidades operativas y picos de trabajo.",
     },
     {
-      title: "Payroll",
+      title: "Administración de Personal y Payroll",
       desc: "Gestión integral de liquidación de haberes y administración de personal.",
     },
     {
@@ -30,11 +30,11 @@ export default function Home() {
       desc: "Herramientas profesionales para selección y desarrollo de talento.",
     },
     {
-      title: "Desarrollo Organizacional",
+      title: "Análisis de Clima Organizacional",
       desc: "Acompañamiento en procesos de mejora y gestión del talento.",
     },
     {
-      title: "Onboarding y Outplacement",
+      title: "Planes de Onboarding y Outplacement",
       desc: "Procesos de inducción y reinserción laboral personalizados.",
     },
   ];
