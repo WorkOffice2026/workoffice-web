@@ -102,9 +102,10 @@ export default function Home() {
         <h2 className="text-3xl font-bold text-[#216089] mb-6">¿Quiénes somos?</h2>
 
         <p className="text-gray-700 leading-8">
-          Work Office es una consultora uruguaya especializada en soluciones en Capital Humano, con más de 30 años de trayectoria en el mercado, acompañando a organizaciones públicas y privadas en la gestión de personas.
+          Somos una consultora uruguaya especializada en soluciones de Capital Humano, con más de 30 años de trayectoria en el mercado y socios fundadores de la CUDESP.
+Acompañamos a organizaciones públicas y privadas en la gestión de personas, aportando nuestra experiencia y conocimiento para responder a los desafíos de cada realidad de manera personalizada. 
           <br /><br />
-          Nuestra experiencia sostenida en el tiempo se complementa con la incorporación de nuevas tecnologías, alianzas estratégicas y procesos de mejora continua, manteniendo un enfoque profesional, responsable y ético.
+          Nuestra trayectoria se complementa con la incorporación constante de nuevas tecnologías, el desarrollo de alianzas estratégicas y la implementación de procesos de mejora continua. Todo ello nos permite brindar un servicio profesional, responsable y ético, adaptado a las necesidades de nuestros clientes y orientado a generar valor sostenible.
         </p>
       </section>
 
